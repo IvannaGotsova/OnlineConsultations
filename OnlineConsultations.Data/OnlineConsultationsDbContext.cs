@@ -6,6 +6,7 @@ namespace OnlineConsultations.Data
 {
     public class OnlineConsultationsDbContext : IdentityDbContext
     {
+        private readonly bool seedDb;
         public OnlineConsultationsDbContext(DbContextOptions<OnlineConsultationsDbContext> options)
             : base(options)
         {
@@ -32,5 +33,38 @@ namespace OnlineConsultations.Data
         public DbSet<Rating> Ratings { get; set; } = null!;
         public DbSet<Review> Reviews { get; set; } = null!;
         public DbSet<SearchUser> SearchUsers { get; set; } = null!;
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder
+                .Entity<ApplicationUser>()
+                .Property(u => u.UserName)
+                .HasMaxLength(20)
+                .IsRequired();
+
+            builder
+                .Entity<ApplicationUser>()
+                .Property(u => u.Email)
+                .HasMaxLength(60)
+                .IsRequired();
+
+            builder
+               .Entity<ApplicationUser>()
+               .Property(u => u.FirstName)
+               .HasMaxLength(60)
+               .IsRequired();
+
+            builder
+               .Entity<ApplicationUser>()
+               .Property(u => u.LastName)
+               .HasMaxLength(60)
+               .IsRequired();
+
+            base.OnModelCreating(builder);
+        }
     }
+    
 }
+
