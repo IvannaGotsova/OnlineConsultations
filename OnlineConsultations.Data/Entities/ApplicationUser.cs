@@ -14,6 +14,7 @@ namespace OnlineConsultations.Data.Entities
         [Required]
         [StringLength(UserMaxLengthFirstName)]
         public string FirstName { get; set; } = null!;
+
         [Required]
         [StringLength(UserMaxLengthLastName)]
         public string LastName { get; set; } = null!;
