@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OnlineConsultations.Data.Entities
 {
-    internal class ProvideUser : ApplicationUser
+    public class ProvideUser : ApplicationUser
     {
         [Key]
         [Required]

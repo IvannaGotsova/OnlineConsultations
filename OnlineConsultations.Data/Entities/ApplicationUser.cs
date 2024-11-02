@@ -9,7 +9,7 @@ using static OnlineConsultations.Data.DataConstants.DataConstants.ApplicationUse
 
 namespace OnlineConsultations.Data.Entities
 {
-    internal class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser
     {
         [Required]
         [StringLength(UserMaxLengthFirstName)]

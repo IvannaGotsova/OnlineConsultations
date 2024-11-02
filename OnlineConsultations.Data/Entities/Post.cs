@@ -9,7 +9,7 @@ using static OnlineConsultations.Data.DataConstants.DataConstants.PostConstants;
 
 namespace OnlineConsultations.Data.Entities
 {
-    internal class Post
+    public class Post
     {
         [Key]
         [Required]

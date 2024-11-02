@@ -9,7 +9,7 @@ using static OnlineConsultations.Data.DataConstants.DataConstants.AnswerConstant
 
 namespace OnlineConsultations.Data.Entities
 {
-    internal class Answer
+    public class Answer
     {
         [Key]
         [Required]

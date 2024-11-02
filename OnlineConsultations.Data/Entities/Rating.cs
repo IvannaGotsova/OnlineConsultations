@@ -9,7 +9,7 @@ using static OnlineConsultations.Data.DataConstants.DataConstants.RatingConstant
 
 namespace OnlineConsultations.Data.Entities
 {
-    internal class Rating
+    public class Rating
     {
         [Key]
         [Required]
