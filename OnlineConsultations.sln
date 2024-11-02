@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineConsultations", "Onli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineConsultations.Core", "..\..\..\Desktop\OnlineConsultations.Core\OnlineConsultations.Core.csproj", "{8A728F3B-806E-49D6-8C6D-5BB70C60DE84}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineConsultations.Data", "..\..\..\Desktop\OnlineConsultations.Data\OnlineConsultations.Data.csproj", "{72AFCEF4-0F4E-441A-A531-BB5E63C147D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8A728F3B-806E-49D6-8C6D-5BB70C60DE84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A728F3B-806E-49D6-8C6D-5BB70C60DE84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A728F3B-806E-49D6-8C6D-5BB70C60DE84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72AFCEF4-0F4E-441A-A531-BB5E63C147D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72AFCEF4-0F4E-441A-A531-BB5E63C147D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72AFCEF4-0F4E-441A-A531-BB5E63C147D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72AFCEF4-0F4E-441A-A531-BB5E63C147D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
