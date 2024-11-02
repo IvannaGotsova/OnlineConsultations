@@ -5,18 +5,22 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static OnlineConsultations.Data.DataConstants.DataConstants.QuestionConstants;
 
 namespace OnlineConsultations.Data.Entities
 {
     internal class Question
     {
+        [Key]
         [Required]
         public int QuestionId { get; set; }
 
         [Required]
+        [StringLength(QuestionTitleMaxLength)]
         public string? QuestionTitle { get; set; }
 
         [Required]
+        [StringLength(QuestionDescriptionMaxLength)]
         public string? QuestionDescription { get; set; }
 
         [Required]
