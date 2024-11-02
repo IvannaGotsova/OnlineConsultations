@@ -5,18 +5,22 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static OnlineConsultations.Data.DataConstants.DataConstants.CommentConstants;
 
 namespace OnlineConsultations.Data.Entities
 {
     internal class Comment
     {
+        [Key]
         [Required]
         public int CommentId { get; set; }
 
         [Required]
+        [StringLength(CommentTitleMaxLength)]
         public string? CommentTitle { get; set; }
 
         [Required]
+        [StringLength(CommentDescriptionMaxLength)]
         public string? CommentDescription { get; set; }
 
         [Required]
