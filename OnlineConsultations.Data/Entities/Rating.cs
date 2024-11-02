@@ -16,7 +16,7 @@ namespace OnlineConsultations.Data.Entities
         public int RatingId { get; set; }
 
         [Required]
-        public int RatingValue { get; set; }
+        public int RatingValue { get; set; }   
 
         [Required]
         public int ProvideUserId { get; set; }
