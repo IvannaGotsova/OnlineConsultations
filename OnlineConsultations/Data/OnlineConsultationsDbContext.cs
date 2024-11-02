@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace OnlineConsultations.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class OnlineConsultationsDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public OnlineConsultationsDbContext(DbContextOptions<OnlineConsultationsDbContext> options)
             : base(options)
         {
         }
