@@ -17,7 +17,7 @@ namespace OnlineConsultations.Data.Entities
 
         [Required]
         [StringLength(ReviewDescriptionMaxLength)]
-        public string? ReviewDescription { get; set; }
+        public string? ReviewDescription { get; set; }    
 
         [Required]
         public DateTime ReviewDate { get; set; }
