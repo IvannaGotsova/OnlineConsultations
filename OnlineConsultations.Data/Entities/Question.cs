@@ -15,7 +15,7 @@ namespace OnlineConsultations.Data.Entities
         [Required]
         public int QuestionId { get; set; }
 
-        [Required]
+        [Required]   
         [StringLength(QuestionTitleMaxLength)]
         public string? QuestionTitle { get; set; }
 
