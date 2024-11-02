@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="ErrorsConstants\" />
+    <Folder Include="Common\" />
+  </ItemGroup>
+
 </Project>
