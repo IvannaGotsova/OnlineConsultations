@@ -5,15 +5,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static OnlineConsultations.Data.DataConstants.DataConstants.MessageConstants;
 
 namespace OnlineConsultations.Data.Entities
 {
     internal class Message
     {
+        [Key]
         [Required]
         public int MessageId { get; set; }
 
         [Required]
+        [StringLength(MessageDescriptionMaxLength)]
         public string? MessageDescription { get; set; }
 
         [Required]
