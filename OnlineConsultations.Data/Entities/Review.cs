@@ -5,15 +5,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static OnlineConsultations.Data.DataConstants.DataConstants.ReviewConstants;
 
 namespace OnlineConsultations.Data.Entities
 {
     internal class Review
     {
+        [Key]
         [Required]
         public int ReviewId { get; set; }
 
         [Required]
+        [StringLength(ReviewDescriptionMaxLength)]
         public string? ReviewDescription { get; set; }
 
         [Required]

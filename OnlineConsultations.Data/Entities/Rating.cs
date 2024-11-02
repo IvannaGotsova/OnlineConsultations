@@ -5,11 +5,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static OnlineConsultations.Data.DataConstants.DataConstants.RatingConstants;
 
 namespace OnlineConsultations.Data.Entities
 {
     internal class Rating
     {
+        [Key]
         [Required]
         public int RatingId { get; set; }
 

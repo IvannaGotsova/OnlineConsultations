@@ -10,6 +10,7 @@ namespace OnlineConsultations.Data.Entities
 {
     internal class SearchUser : ApplicationUser
     {
+        [Key]
         [Required]
         public int SearchUserId { get; set; }
 
