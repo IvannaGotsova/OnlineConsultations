@@ -13,10 +13,10 @@ namespace OnlineConsultations.Data.Entities
     {
         [Required]
         [StringLength(UserMaxLengthFirstName)]
-        public string FirstName { get; set; } = null!;
+        public string? FirstName { get; set; }
 
         [Required]
         [StringLength(UserMaxLengthLastName)]
-        public string LastName { get; set; } = null!;
+        public string? LastName { get; set; } 
     }
 }
