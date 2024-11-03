@@ -36,7 +36,7 @@ namespace OnlineConsultations.Data.Seeds
 
             applicationUsers.Add(applicationUser);
 
-            var guestUser1 = new GuestUser()
+            var guestUser1 = new ApplicationUser()
             {
                 Id = "guest1@guest.com",
                 UserName = "guest1@guest.com",
@@ -50,7 +50,7 @@ namespace OnlineConsultations.Data.Seeds
 
             applicationUsers.Add(guestUser1);
 
-            var guestUser2 = new GuestUser()
+            var guestUser2 = new ApplicationUser()
             {
                 Id = "guest2@guest.com",
                 UserName = "guest2@guest.com",
@@ -64,7 +64,7 @@ namespace OnlineConsultations.Data.Seeds
 
             applicationUsers.Add(guestUser2);
 
-            var guestUser3 = new GuestUser()
+            var guestUser3 = new ApplicationUser()
             {
                 Id = "guest3@guest.com",
                 UserName = "guest3@guest.com",
@@ -78,7 +78,7 @@ namespace OnlineConsultations.Data.Seeds
 
             applicationUsers.Add(guestUser3);
 
-            var searchUser1 = new SearchUser()
+            var searchUser1 = new ApplicationUser()
             {
                 Id = "search1@search.com",
                 UserName = "search1@search.com",
@@ -92,7 +92,7 @@ namespace OnlineConsultations.Data.Seeds
 
             applicationUsers.Add(searchUser1);
 
-            var searchUser2 = new SearchUser()
+            var searchUser2 = new ApplicationUser()
             {
                 Id = "search2@search.com",
                 UserName = "search2@search.com",
@@ -106,7 +106,7 @@ namespace OnlineConsultations.Data.Seeds
 
             applicationUsers.Add(searchUser2);
 
-            var searchUser3 = new SearchUser()
+            var searchUser3 = new ApplicationUser()
             {
                 Id = "search3@search.com",
                 UserName = "search3@search.com",
@@ -120,7 +120,7 @@ namespace OnlineConsultations.Data.Seeds
 
             applicationUsers.Add(searchUser3);
 
-            var provideUser1 = new ProvideUser()
+            var provideUser1 = new ApplicationUser()
             {
                 Id = "provide1@provide.com",
                 UserName = "provide1@provide.com",
@@ -134,7 +134,7 @@ namespace OnlineConsultations.Data.Seeds
 
             applicationUsers.Add(provideUser1);
 
-            var provideUser2 = new ProvideUser()
+            var provideUser2 = new ApplicationUser()
             {
                 Id = "provide2@provide.com",
                 UserName = "provide2@provide.com",
@@ -148,7 +148,7 @@ namespace OnlineConsultations.Data.Seeds
 
             applicationUsers.Add(provideUser2);
 
-            var provideUser3 = new ProvideUser()
+            var provideUser3 = new ApplicationUser()
             {
                 Id = "provide3@provide.com",
                 UserName = "provide3@provide.com",
