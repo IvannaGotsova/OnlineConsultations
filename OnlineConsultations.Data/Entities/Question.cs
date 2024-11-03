@@ -17,11 +17,11 @@ namespace OnlineConsultations.Data.Entities
 
         [Required]   
         [StringLength(QuestionTitleMaxLength)]
-        public string? QuestionTitle { get; set; }
+        public required string QuestionTitle { get; set; }
 
         [Required]
         [StringLength(QuestionDescriptionMaxLength)]
-        public string? QuestionDescription { get; set; }
+        public required string QuestionDescription { get; set; }
 
         [Required]
         public DateTime QuestionDate { get; set; }

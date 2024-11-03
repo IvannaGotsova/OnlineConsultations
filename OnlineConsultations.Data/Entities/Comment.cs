@@ -17,20 +17,18 @@ namespace OnlineConsultations.Data.Entities
 
         [Required]
         [StringLength(CommentTitleMaxLength)]
-        public string? CommentTitle { get; set; }
+        public required string CommentTitle { get; set; }
 
         [Required]
         [StringLength(CommentDescriptionMaxLength)]
-        public string? CommentDescription { get; set; }
+        public required string CommentDescription { get; set; }
 
-        [Required]
         public int GuestUserId { get; set; }
 
         [ForeignKey(nameof(GuestUserId))]
         public GuestUser? GuestUser { get; set; }
 
-        [Required]
-        public int SearchUserId { get; set; }
+        public int SearchUserId { get; set; } 
 
         [ForeignKey(nameof(SearchUserId))]
         public SearchUser? SearchUser { get; set; } 

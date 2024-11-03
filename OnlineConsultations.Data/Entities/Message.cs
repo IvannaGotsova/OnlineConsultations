@@ -17,7 +17,7 @@ namespace OnlineConsultations.Data.Entities
 
         [Required]
         [StringLength(MessageDescriptionMaxLength)]
-        public string? MessageDescription { get; set; }
+        public required string MessageDescription { get; set; }
 
         [Required]
         public int ProvideUserId { get; set; }

@@ -17,14 +17,14 @@ namespace OnlineConsultations.Data.Entities
 
         [Required]
         [StringLength(PostTitleMaxLength)]
-        public  string? PostTitle { get; set; }
+        public required string PostTitle { get; set; }
 
         [Required]
         [StringLength(PostDescriptionMaxLength)]
-        public  string? PostDescription { get; set; }
+        public required string PostDescription { get; set; }
 
         [Required]
-        public  decimal PostPayPerDay { get; set; }
+        public  decimal PostPayPerHour { get; set; }
 
         [Required]
         public int ProvideUserId { get; set; }

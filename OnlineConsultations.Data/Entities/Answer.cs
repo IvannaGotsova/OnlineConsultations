@@ -17,7 +17,7 @@ namespace OnlineConsultations.Data.Entities
 
         [Required]
         [StringLength(AnswerDescriptionMaxLength)]
-        public string? AnswerDescription{ get; set; }
+        public required string AnswerDescription{ get; set; }
 
         [Required]
         public DateTime AnswerDate { get; set; }

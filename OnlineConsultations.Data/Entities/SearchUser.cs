@@ -15,7 +15,7 @@ namespace OnlineConsultations.Data.Entities
         public int SearchUserId { get; set; }
 
         [Required]
-        public string? ApplicationUserId { get; set; }
+        public required string ApplicationUserId { get; set; }
 
         [ForeignKey(nameof(ApplicationUserId))]
         public ApplicationUser? ApplicationUser { get; set; }
