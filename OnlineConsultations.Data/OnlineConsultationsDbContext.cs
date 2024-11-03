@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using OnlineConsultations.Data.Entities;
+using OnlineConsultations.Data.Seeds;
 
 namespace OnlineConsultations.Data
 {
     public class OnlineConsultationsDbContext : IdentityDbContext
     {
         private readonly bool seedDb;
-        public OnlineConsultationsDbContext(DbContextOptions<OnlineConsultationsDbContext> options)
+        public OnlineConsultationsDbContext(DbContextOptions<OnlineConsultationsDbContext> options, bool seed = true)
             : base(options)
         {
             if (this.Database.IsRelational())
@@ -17,9 +18,8 @@ namespace OnlineConsultations.Data
             else
             {
                 this.Database.EnsureCreated();
-                //this.seedDb = seed;
             }
-
+            this.seedDb = seed;
         }
         public DbSet<ApplicationRole> ApplicationRoles { get; set; } = null!;
         public DbSet<Answer> Answers { get; set; } = null!;
@@ -63,8 +63,24 @@ namespace OnlineConsultations.Data
                .IsRequired();
 
             base.OnModelCreating(builder);
+
+            if (this.seedDb)
+            {
+                builder.ApplyConfiguration(new AnswerConfiguration());
+                builder.ApplyConfiguration(new ApplicationUserConfiguration());
+                builder.ApplyConfiguration(new CommentConfiguration());
+                builder.ApplyConfiguration(new GuestUserConfiguration());
+                builder.ApplyConfiguration(new MessageConfiguration());
+                builder.ApplyConfiguration(new PostConfiguration());
+                builder.ApplyConfiguration(new ProvideUserConfiguration());
+                builder.ApplyConfiguration(new QuestionConfiguration());
+                builder.ApplyConfiguration(new RatingConfiguration());
+                builder.ApplyConfiguration(new ReviewConfiguration());
+                builder.ApplyConfiguration(new SearchUserConfiguration());
+            }
+
+            base.OnModelCreating(builder);
         }
-    }
-    
+    }   
 }
 
