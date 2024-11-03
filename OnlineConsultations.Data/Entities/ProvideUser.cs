@@ -15,13 +15,18 @@ namespace OnlineConsultations.Data.Entities
         public int ProvideUserId { get; set; }
 
         [Required]
-        public string ApplicationUserId { get; set; } = null!;
+        public string? ApplicationUserId { get; set; } 
 
         [ForeignKey(nameof(ApplicationUserId))]
         public ApplicationUser? ApplicationUser { get; set; }
 
+        [Required]
+        public int PostId { get; set; }
+
+        [ForeignKey(nameof(PostId))]
+        public Post? Post { get; set; }
+
         public IEnumerable<Answer> Answers = new List<Answer>();
-        public Post? Post { get; set; } 
 
         public IEnumerable<Message> Messages = new List<Message>();
     }

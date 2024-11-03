@@ -30,13 +30,13 @@ namespace OnlineConsultations.Data.Entities
         public int GuestUserId { get; set; }
 
         [ForeignKey(nameof(GuestUserId))]
-        public GuestUser GuestUser { get; set; } = null!;
+        public GuestUser? GuestUser { get; set; } 
 
         [Required]
         public int SearchUserId { get; set; }
 
         [ForeignKey(nameof(SearchUserId))]
-        public SearchUser SearchUser { get; set; } = null!;
+        public SearchUser? SearchUser { get; set; } 
 
         public IEnumerable<Answer> Answers = new List<Answer>();
     }

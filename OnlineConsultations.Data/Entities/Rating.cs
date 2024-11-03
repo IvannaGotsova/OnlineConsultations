@@ -22,12 +22,12 @@ namespace OnlineConsultations.Data.Entities
         public int ProvideUserId { get; set; }
 
         [ForeignKey(nameof(ProvideUserId))]
-        public ProvideUser ProvideUser { get; set; } = null!;
+        public ProvideUser? ProvideUser { get; set; }
 
         [Required]
         public int SearchUserId { get; set; }
 
         [ForeignKey(nameof(SearchUserId))]
-        public SearchUser SearchUser { get; set; } = null!;
+        public SearchUser? SearchUser { get; set; } 
     }
 }

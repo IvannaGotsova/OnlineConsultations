@@ -17,7 +17,7 @@ namespace OnlineConsultations.Data.Entities
 
         [Required]
         [StringLength(AnswerDescriptionMaxLength)]
-        public required string AnswerDescription{ get; set; }
+        public string? AnswerDescription{ get; set; }
 
         [Required]
         public DateTime AnswerDate { get; set; }
@@ -26,13 +26,13 @@ namespace OnlineConsultations.Data.Entities
         public int ProvideUserId { get; set; }
 
         [ForeignKey(nameof(ProvideUserId))]
-        public ProvideUser ProvideUser { get; set; } = null!;
+        public ProvideUser? ProvideUser { get; set; }
 
         [Required]
         public int QuestionId { get; set; }
 
         [ForeignKey(nameof(QuestionId))]
-        public Question Question { get; set; } = null!;
+        public Question? Question { get; set; }
 
         public IEnumerable<Comment> Comments = new List<Comment>();
     }
