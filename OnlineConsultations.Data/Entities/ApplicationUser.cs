@@ -1,10 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static OnlineConsultations.Data.DataConstants.DataConstants.ApplicationUserConstants;
 
 namespace OnlineConsultations.Data.Entities
