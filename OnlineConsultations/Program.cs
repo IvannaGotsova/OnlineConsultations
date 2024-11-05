@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using OnlineConsultations.Data;
 using OnlineConsultations.Data.Entities;
 using OnlineConsultations.Data.Repositories;
@@ -19,7 +20,8 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>
     (
-    options => {
+    options =>
+    {
         options.SignIn.RequireConfirmedAccount = false;
         options.Password.RequiredLength = 6;
         options.Password.RequireNonAlphanumeric = false;
@@ -28,7 +30,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>
 
     })
     .AddRoles<ApplicationRole>()
-    .AddEntityFrameworkStores <OnlineConsultationsDbContext>();
+    .AddEntityFrameworkStores<OnlineConsultationsDbContext>();
 
 
 builder.Services.AddControllersWithViews(
