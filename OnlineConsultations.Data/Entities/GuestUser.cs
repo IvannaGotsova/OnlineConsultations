@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace OnlineConsultations.Data.Entities
 {
-    public class GuestUser : ApplicationUser
+    public class GuestUser 
     {
-        [Key]
         [Required]
         public int GuestUserId { get; set; }
 
