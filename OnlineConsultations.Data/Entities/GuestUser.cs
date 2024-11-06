@@ -11,7 +11,7 @@ namespace OnlineConsultations.Data.Entities
     public class GuestUser 
     {
         [Required]
-        public int GuestUserId { get; set; }
+        public int GuestUserId { get; set; } 
 
         [Required]
         public required string ApplicationUserId { get; set; } 
