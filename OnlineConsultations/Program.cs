@@ -13,7 +13,6 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<OnlineConsultationsDbContext>
     (options => {
         options.UseSqlServer(connectionString, b => b.MigrationsAssembly("OnlineConsultations.Data"));
-        options.UseSqlServer(connectionString);
     });
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
