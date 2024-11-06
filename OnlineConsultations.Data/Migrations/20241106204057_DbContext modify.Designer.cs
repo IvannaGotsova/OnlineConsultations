@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineConsultations.Data;
 
@@ -11,9 +12,11 @@ using OnlineConsultations.Data;
 namespace OnlineConsultations.Data.Migrations
 {
     [DbContext(typeof(OnlineConsultationsDbContext))]
-    partial class OnlineConsultationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241106204057_DbContext modify")]
+    partial class DbContextmodify
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
