@@ -5,7 +5,7 @@ using OnlineConsultations.Data.Seeds;
 
 namespace OnlineConsultations.Data
 {
-    public class OnlineConsultationsDbContext : IdentityDbContext
+    public class OnlineConsultationsDbContext : IdentityDbContext<ApplicationUser>
     {
         private readonly bool seedDb;
         public OnlineConsultationsDbContext(DbContextOptions<OnlineConsultationsDbContext> options, bool seed = true)
@@ -19,7 +19,7 @@ namespace OnlineConsultations.Data
             {
                 this.Database.EnsureCreated();
                 this.seedDb = seed;
-            }
+            } 
             this.seedDb = seed;
         }
         public DbSet<ApplicationRole> ApplicationRoles { get; set; } = null!;
