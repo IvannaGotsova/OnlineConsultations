@@ -19,13 +19,11 @@ namespace OnlineConsultations.Data.Entities
         [StringLength(MessageDescriptionMaxLength)]
         public required string MessageDescription { get; set; }
 
-        [Required]
         public int ProvideUserId { get; set; }
 
         [ForeignKey(nameof(ProvideUserId))]
         public ProvideUser? ProvideUser { get; set; }
 
-        [Required]
         public int SearchUserId { get; set; }
 
         [ForeignKey(nameof(SearchUserId))]
