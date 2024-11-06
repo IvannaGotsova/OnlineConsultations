@@ -26,17 +26,15 @@ namespace OnlineConsultations.Data.Entities
         [Required]
         public DateTime QuestionDate { get; set; }
 
-        [Required]
         public int GuestUserId { get; set; }
 
         [ForeignKey(nameof(GuestUserId))]
-        public GuestUser? GuestUser { get; set; } 
+        public GuestUser? GuestUser { get; set; }
 
-        [Required]
         public int SearchUserId { get; set; }
 
         [ForeignKey(nameof(SearchUserId))]
-        public SearchUser? SearchUser { get; set; } 
+        public SearchUser? SearchUser { get; set; }
 
         public IEnumerable<Answer> Answers = new List<Answer>();
     }
