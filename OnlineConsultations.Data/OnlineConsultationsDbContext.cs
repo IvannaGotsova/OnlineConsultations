@@ -18,6 +18,7 @@ namespace OnlineConsultations.Data
             else
             {
                 this.Database.EnsureCreated();
+                this.seedDb = seed;
             }
             this.seedDb = seed;
         }
