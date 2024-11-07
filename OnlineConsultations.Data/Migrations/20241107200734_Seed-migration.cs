@@ -8,54 +8,26 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace OnlineConsultations.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class DbContextmodify : Migration
+    public partial class Seedmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Discriminator",
-                table: "AspNetUsers");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "LastName",
-                table: "AspNetUsers",
-                type: "nvarchar(60)",
-                maxLength: 60,
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "nvarchar(60)",
-                oldMaxLength: 60,
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "FirstName",
-                table: "AspNetUsers",
-                type: "nvarchar(60)",
-                maxLength: 60,
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "nvarchar(60)",
-                oldMaxLength: 60,
-                oldNullable: true);
-
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "admin@admin.com", 0, "7316e89e-e506-4c9a-9d14-962c1fb5ccd9", "admin@admin.com", false, "AdminFirstName", "AdminLastName", false, null, null, null, "AQAAAAIAAYagAAAAEAnQjbIeHw57a+J4qypUY6/OaC/R21seEkDJxmk+wnh6ApJRzBPaOKXbL04OHJaO9Q==", null, false, "7f102cb7-dafb-43ec-9340-d1f649c19e66", false, "admin@admin.com" },
-                    { "guest1@guest.com", 0, "191f012d-afe4-4631-a729-4345af688859", "guest1@guest.com", false, "GuestOneFirstName", "GuestOneLastName", false, null, null, null, "AQAAAAIAAYagAAAAEOj7lg8DX0z4xMzjzjBj0IRLcgj1I4JbRzlDozSd8iLKHg4IujmiUa4K8sy4CMxKUw==", null, false, "392d20d9-26b3-40fa-af75-84775f336ed0", false, "guest1@guest.com" },
-                    { "guest2@guest.com", 0, "b8e61a34-2e79-4484-95fe-a2a85793fb9f", "guest2@guest.com", false, "GuestTwoFirstName", "GuestTwoLastName", false, null, null, null, "AQAAAAIAAYagAAAAEK6d9a0MGHknFsv2kY78czzhYhXdtRIt5vmbVBT8LxxydHIo5bFrA50xSoJ1jJbVdw==", null, false, "df9a05b1-a4ad-4031-81b3-aed86d345570", false, "guest2@guest.com" },
-                    { "guest3@guest.com", 0, "fb000c97-0187-4fd4-ae7c-3b43cc308bd4", "guest3@guest.com", false, "GuestThreeFirstName", "GuestThreeLastName", false, null, null, null, "AQAAAAIAAYagAAAAEGebJtRy4G13elU0Ayv5nkMYLcWXT0a2UEv3dPpNifbs+LGJsT9l3JIRUyucR8XHoQ==", null, false, "84d6b5d2-618c-441d-b70e-c1754cad0f11", false, "guest3@guest.com" },
-                    { "provide1@provide.com", 0, "d636f140-f84b-4df7-82e8-828459e487c5", "provide1@provide.com", false, "ProvideOneFirstName", "ProvideOneLastName", false, null, null, null, "AQAAAAIAAYagAAAAEBCldpgMb3bGhxK1nw+AqkSg0lmsnGmLXPCRf7ogQPLvGz9gYE/Ng/L0f58SYCfqCQ==", null, false, "b49e93ef-e7df-4209-bda1-2081c8f3f835", false, "provide1@provide.com" },
-                    { "provide2@provide.com", 0, "5b4e36a8-e6b0-4a0e-8499-f01d8aa3de50", "provide2@provide.com", false, "ProvideTwoFirstName", "ProvideTwoLastName", false, null, null, null, "AQAAAAIAAYagAAAAEEhTl948vfTQ9DNcz6ZVPyWVQeniDRZfqW9J6VrJsM7zMX3wCd0AMJR35+TP9wqYHw==", null, false, "4e275445-813f-4119-9186-dd4a09c9a27d", false, "provide2@provide.com" },
-                    { "provide3@provide.com", 0, "cc29530c-49c5-41ad-bff8-85531a36e534", "provide3@provide.com", false, "ProvideThreeFirstName", "ProvideThreeLastName", false, null, null, null, "AQAAAAIAAYagAAAAEE1d0YByhukc5IJhClG6P05zcfY+DJW2FHDb0BzO5U3sQDn9UFqKxgh8GRoiuY9r4A==", null, false, "26fb10f1-fbe0-4b51-8877-27d772a9a670", false, "provide3@provide.com" },
-                    { "search1@search.com", 0, "d944d892-223d-491c-9e40-40561d784da0", "search1@search.com", false, "SearchOneFirstName", "SearchOneLastName", false, null, null, null, "AQAAAAIAAYagAAAAEPSeykZTgGhzd7+CzEmx8Bs5vhiA+wJNj01iume3raEwR9R0o69qaNMCqVXJDZArZw==", null, false, "eb84722e-0810-443f-89e0-da44b772bc18", false, "search1@search.com" },
-                    { "search2@search.com", 0, "fe1454ad-ac33-42c6-abfc-bd576e24432d", "search2@search.com", false, "SearchTwoFirstName", "SearchTwoLastName", false, null, null, null, "AQAAAAIAAYagAAAAEPCyAGFqr+cv5xQo0K6URECEPcrrupD7P045G/ETXbTmneMDYhzGRmalMEw7E0zsyQ==", null, false, "c29e3871-c5ad-4caa-85ac-400f64f067bf", false, "search2@search.com" },
-                    { "search3@search.com", 0, "d867df21-ee02-440e-82c1-825b52c0c1f4", "search3@search.com", false, "SearchThreeFirstName", "SearchThreeLastName", false, null, null, null, "AQAAAAIAAYagAAAAEIEizcGzvpzrG6O1mYZN3TVJtQs3n2NcRrjjSbUKzLFDq2lR7QehyDRmVJknW8//Hw==", null, false, "e189af23-230a-418b-8268-b9a8bbf08bb8", false, "search3@search.com" }
+                    { "admin@admin.com", 0, "0f2cb6ec-5d22-4b92-8e46-4736f1a6cff1", "admin@admin.com", false, "AdminFirstName", "AdminLastName", false, null, null, null, "AQAAAAIAAYagAAAAEFxlY6h9qfYueFS4o+LbuttO/HKnXRttsEQahzaYEbzEzA5Zw1lLnMVTVVL0WCt5cQ==", null, false, "eccb1f6f-e5dc-406a-b915-f8ba60516d77", false, "admin@admin.com" },
+                    { "guest1@guest.com", 0, "c4fbd193-549b-4034-abcd-57c6c81425be", "guest1@guest.com", false, "GuestOneFirstName", "GuestOneLastName", false, null, null, null, "AQAAAAIAAYagAAAAEMQaue3+H1CF4nWCcgwNTeI99aUePQZb+V3HheNqcEgAQoFsN0GIzOOG0yb8FXVSiw==", null, false, "da873625-bf95-4484-aadb-c49c2ba03066", false, "guest1@guest.com" },
+                    { "guest2@guest.com", 0, "cf88f0a8-3008-47ba-a9bf-def83807bd61", "guest2@guest.com", false, "GuestTwoFirstName", "GuestTwoLastName", false, null, null, null, "AQAAAAIAAYagAAAAEGDZuZ4vZI/w+mby8wBSG1UsWMQTUVR/2Vy1UtLAku3jsK7mv7S423K4vno8UZOJBQ==", null, false, "76c52747-ab56-4b9e-824a-3acb2edbf149", false, "guest2@guest.com" },
+                    { "guest3@guest.com", 0, "fdb9ed03-effe-4d24-880e-a13d8cc38723", "guest3@guest.com", false, "GuestThreeFirstName", "GuestThreeLastName", false, null, null, null, "AQAAAAIAAYagAAAAEIpFfvs6YMpXKJ8hLoernXSjIcktK4mF2OElMHD69OqStoAY+a98rMk5J/2T8VeshQ==", null, false, "0e8607d4-b67a-4238-aca5-0edc50c34c9d", false, "guest3@guest.com" },
+                    { "provide1@provide.com", 0, "9cc6af45-4932-4d26-97d9-2275d3cb87e1", "provide1@provide.com", false, "ProvideOneFirstName", "ProvideOneLastName", false, null, null, null, "AQAAAAIAAYagAAAAEAkakCOY1y/Zv8g+K5z60oIIOf0UQs9g2doeEZwD2HmCiZK8Z+uWSJE7hs/+57p/zQ==", null, false, "13eabb45-6f93-4dad-9ad4-e18279e7e115", false, "provide1@provide.com" },
+                    { "provide2@provide.com", 0, "ae23081c-3476-48b0-906c-b0a98e7f7549", "provide2@provide.com", false, "ProvideTwoFirstName", "ProvideTwoLastName", false, null, null, null, "AQAAAAIAAYagAAAAEO3Lvoy/pOq2RAOwkVcoUCOEgieCwC51aJrpi7kFUhZdH/ddV2XcFgyICmVvRzrw+Q==", null, false, "45d23a1c-c874-4fca-a55c-476998ae7436", false, "provide2@provide.com" },
+                    { "provide3@provide.com", 0, "6cf92602-861e-4e2e-a1ea-b2cae916d973", "provide3@provide.com", false, "ProvideThreeFirstName", "ProvideThreeLastName", false, null, null, null, "AQAAAAIAAYagAAAAEJbN1m+aEpadhZfiF1AftdybFUtMg8k+4rcOE4M5nGzJ4nNVDUr+YNro231qFYyDoA==", null, false, "34be6814-dac2-4974-a82d-9249300baf3b", false, "provide3@provide.com" },
+                    { "search1@search.com", 0, "2edbff31-d963-423c-a02d-944bf7109763", "search1@search.com", false, "SearchOneFirstName", "SearchOneLastName", false, null, null, null, "AQAAAAIAAYagAAAAEGRPGXTmDEIl34EqxFdsu1QvbRfxPClB+BzNs2joh2G49Jb1TvqUu9lNZjOvlgZ7EA==", null, false, "e3d89729-08c4-4a16-adf4-c9da4ec12bf9", false, "search1@search.com" },
+                    { "search2@search.com", 0, "c2dbeaa6-cbc6-44a6-aeaa-949c5a4a4f70", "search2@search.com", false, "SearchTwoFirstName", "SearchTwoLastName", false, null, null, null, "AQAAAAIAAYagAAAAEJwekQUHgTY1cRu9mk9VCNUfnsLcBOo4gn3ZKdWmhXvIOArsXzWpbFUMGQVyzJ7AAw==", null, false, "f1c51a1e-9220-42c2-83e4-4f4f093ad416", false, "search2@search.com" },
+                    { "search3@search.com", 0, "74499b7a-a0d7-4eee-a81b-023d5c39dcd8", "search3@search.com", false, "SearchThreeFirstName", "SearchThreeLastName", false, null, null, null, "AQAAAAIAAYagAAAAEDhAh8HvenR2he+93FdxM/iH6lhDBCSe/JCrZ2jEXAEpXsYjd3+2A7gb9HNjFabMtQ==", null, false, "43bee3ec-7704-4d54-84a8-433b2d6c537b", false, "search3@search.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -571,34 +543,6 @@ namespace OnlineConsultations.Data.Migrations
                 table: "AspNetUsers",
                 keyColumn: "Id",
                 keyValue: "search3@search.com");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "LastName",
-                table: "AspNetUsers",
-                type: "nvarchar(60)",
-                maxLength: 60,
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(60)",
-                oldMaxLength: 60);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "FirstName",
-                table: "AspNetUsers",
-                type: "nvarchar(60)",
-                maxLength: 60,
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(60)",
-                oldMaxLength: 60);
-
-            migrationBuilder.AddColumn<string>(
-                name: "Discriminator",
-                table: "AspNetUsers",
-                type: "nvarchar(21)",
-                maxLength: 21,
-                nullable: false,
-                defaultValue: "");
         }
     }
 }

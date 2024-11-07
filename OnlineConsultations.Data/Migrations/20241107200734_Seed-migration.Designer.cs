@@ -12,8 +12,8 @@ using OnlineConsultations.Data;
 namespace OnlineConsultations.Data.Migrations
 {
     [DbContext(typeof(OnlineConsultationsDbContext))]
-    [Migration("20241106204057_DbContext modify")]
-    partial class DbContextmodify
+    [Migration("20241107200734_Seed-migration")]
+    partial class Seedmigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -357,15 +357,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "admin@admin.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7316e89e-e506-4c9a-9d14-962c1fb5ccd9",
+                            ConcurrencyStamp = "0f2cb6ec-5d22-4b92-8e46-4736f1a6cff1",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             FirstName = "AdminFirstName",
                             LastName = "AdminLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEAnQjbIeHw57a+J4qypUY6/OaC/R21seEkDJxmk+wnh6ApJRzBPaOKXbL04OHJaO9Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFxlY6h9qfYueFS4o+LbuttO/HKnXRttsEQahzaYEbzEzA5Zw1lLnMVTVVL0WCt5cQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7f102cb7-dafb-43ec-9340-d1f649c19e66",
+                            SecurityStamp = "eccb1f6f-e5dc-406a-b915-f8ba60516d77",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         },
@@ -373,15 +373,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "guest1@guest.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "191f012d-afe4-4631-a729-4345af688859",
+                            ConcurrencyStamp = "c4fbd193-549b-4034-abcd-57c6c81425be",
                             Email = "guest1@guest.com",
                             EmailConfirmed = false,
                             FirstName = "GuestOneFirstName",
                             LastName = "GuestOneLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEOj7lg8DX0z4xMzjzjBj0IRLcgj1I4JbRzlDozSd8iLKHg4IujmiUa4K8sy4CMxKUw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMQaue3+H1CF4nWCcgwNTeI99aUePQZb+V3HheNqcEgAQoFsN0GIzOOG0yb8FXVSiw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "392d20d9-26b3-40fa-af75-84775f336ed0",
+                            SecurityStamp = "da873625-bf95-4484-aadb-c49c2ba03066",
                             TwoFactorEnabled = false,
                             UserName = "guest1@guest.com"
                         },
@@ -389,15 +389,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "guest2@guest.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b8e61a34-2e79-4484-95fe-a2a85793fb9f",
+                            ConcurrencyStamp = "cf88f0a8-3008-47ba-a9bf-def83807bd61",
                             Email = "guest2@guest.com",
                             EmailConfirmed = false,
                             FirstName = "GuestTwoFirstName",
                             LastName = "GuestTwoLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEK6d9a0MGHknFsv2kY78czzhYhXdtRIt5vmbVBT8LxxydHIo5bFrA50xSoJ1jJbVdw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGDZuZ4vZI/w+mby8wBSG1UsWMQTUVR/2Vy1UtLAku3jsK7mv7S423K4vno8UZOJBQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "df9a05b1-a4ad-4031-81b3-aed86d345570",
+                            SecurityStamp = "76c52747-ab56-4b9e-824a-3acb2edbf149",
                             TwoFactorEnabled = false,
                             UserName = "guest2@guest.com"
                         },
@@ -405,15 +405,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "guest3@guest.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fb000c97-0187-4fd4-ae7c-3b43cc308bd4",
+                            ConcurrencyStamp = "fdb9ed03-effe-4d24-880e-a13d8cc38723",
                             Email = "guest3@guest.com",
                             EmailConfirmed = false,
                             FirstName = "GuestThreeFirstName",
                             LastName = "GuestThreeLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEGebJtRy4G13elU0Ayv5nkMYLcWXT0a2UEv3dPpNifbs+LGJsT9l3JIRUyucR8XHoQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIpFfvs6YMpXKJ8hLoernXSjIcktK4mF2OElMHD69OqStoAY+a98rMk5J/2T8VeshQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "84d6b5d2-618c-441d-b70e-c1754cad0f11",
+                            SecurityStamp = "0e8607d4-b67a-4238-aca5-0edc50c34c9d",
                             TwoFactorEnabled = false,
                             UserName = "guest3@guest.com"
                         },
@@ -421,15 +421,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "search1@search.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d944d892-223d-491c-9e40-40561d784da0",
+                            ConcurrencyStamp = "2edbff31-d963-423c-a02d-944bf7109763",
                             Email = "search1@search.com",
                             EmailConfirmed = false,
                             FirstName = "SearchOneFirstName",
                             LastName = "SearchOneLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEPSeykZTgGhzd7+CzEmx8Bs5vhiA+wJNj01iume3raEwR9R0o69qaNMCqVXJDZArZw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGRPGXTmDEIl34EqxFdsu1QvbRfxPClB+BzNs2joh2G49Jb1TvqUu9lNZjOvlgZ7EA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "eb84722e-0810-443f-89e0-da44b772bc18",
+                            SecurityStamp = "e3d89729-08c4-4a16-adf4-c9da4ec12bf9",
                             TwoFactorEnabled = false,
                             UserName = "search1@search.com"
                         },
@@ -437,15 +437,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "search2@search.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fe1454ad-ac33-42c6-abfc-bd576e24432d",
+                            ConcurrencyStamp = "c2dbeaa6-cbc6-44a6-aeaa-949c5a4a4f70",
                             Email = "search2@search.com",
                             EmailConfirmed = false,
                             FirstName = "SearchTwoFirstName",
                             LastName = "SearchTwoLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEPCyAGFqr+cv5xQo0K6URECEPcrrupD7P045G/ETXbTmneMDYhzGRmalMEw7E0zsyQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJwekQUHgTY1cRu9mk9VCNUfnsLcBOo4gn3ZKdWmhXvIOArsXzWpbFUMGQVyzJ7AAw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c29e3871-c5ad-4caa-85ac-400f64f067bf",
+                            SecurityStamp = "f1c51a1e-9220-42c2-83e4-4f4f093ad416",
                             TwoFactorEnabled = false,
                             UserName = "search2@search.com"
                         },
@@ -453,15 +453,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "search3@search.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d867df21-ee02-440e-82c1-825b52c0c1f4",
+                            ConcurrencyStamp = "74499b7a-a0d7-4eee-a81b-023d5c39dcd8",
                             Email = "search3@search.com",
                             EmailConfirmed = false,
                             FirstName = "SearchThreeFirstName",
                             LastName = "SearchThreeLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEIEizcGzvpzrG6O1mYZN3TVJtQs3n2NcRrjjSbUKzLFDq2lR7QehyDRmVJknW8//Hw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDhAh8HvenR2he+93FdxM/iH6lhDBCSe/JCrZ2jEXAEpXsYjd3+2A7gb9HNjFabMtQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e189af23-230a-418b-8268-b9a8bbf08bb8",
+                            SecurityStamp = "43bee3ec-7704-4d54-84a8-433b2d6c537b",
                             TwoFactorEnabled = false,
                             UserName = "search3@search.com"
                         },
@@ -469,15 +469,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "provide1@provide.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d636f140-f84b-4df7-82e8-828459e487c5",
+                            ConcurrencyStamp = "9cc6af45-4932-4d26-97d9-2275d3cb87e1",
                             Email = "provide1@provide.com",
                             EmailConfirmed = false,
                             FirstName = "ProvideOneFirstName",
                             LastName = "ProvideOneLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEBCldpgMb3bGhxK1nw+AqkSg0lmsnGmLXPCRf7ogQPLvGz9gYE/Ng/L0f58SYCfqCQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAkakCOY1y/Zv8g+K5z60oIIOf0UQs9g2doeEZwD2HmCiZK8Z+uWSJE7hs/+57p/zQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b49e93ef-e7df-4209-bda1-2081c8f3f835",
+                            SecurityStamp = "13eabb45-6f93-4dad-9ad4-e18279e7e115",
                             TwoFactorEnabled = false,
                             UserName = "provide1@provide.com"
                         },
@@ -485,15 +485,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "provide2@provide.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5b4e36a8-e6b0-4a0e-8499-f01d8aa3de50",
+                            ConcurrencyStamp = "ae23081c-3476-48b0-906c-b0a98e7f7549",
                             Email = "provide2@provide.com",
                             EmailConfirmed = false,
                             FirstName = "ProvideTwoFirstName",
                             LastName = "ProvideTwoLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEEhTl948vfTQ9DNcz6ZVPyWVQeniDRZfqW9J6VrJsM7zMX3wCd0AMJR35+TP9wqYHw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO3Lvoy/pOq2RAOwkVcoUCOEgieCwC51aJrpi7kFUhZdH/ddV2XcFgyICmVvRzrw+Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4e275445-813f-4119-9186-dd4a09c9a27d",
+                            SecurityStamp = "45d23a1c-c874-4fca-a55c-476998ae7436",
                             TwoFactorEnabled = false,
                             UserName = "provide2@provide.com"
                         },
@@ -501,15 +501,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "provide3@provide.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cc29530c-49c5-41ad-bff8-85531a36e534",
+                            ConcurrencyStamp = "6cf92602-861e-4e2e-a1ea-b2cae916d973",
                             Email = "provide3@provide.com",
                             EmailConfirmed = false,
                             FirstName = "ProvideThreeFirstName",
                             LastName = "ProvideThreeLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEE1d0YByhukc5IJhClG6P05zcfY+DJW2FHDb0BzO5U3sQDn9UFqKxgh8GRoiuY9r4A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJbN1m+aEpadhZfiF1AftdybFUtMg8k+4rcOE4M5nGzJ4nNVDUr+YNro231qFYyDoA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "26fb10f1-fbe0-4b51-8877-27d772a9a670",
+                            SecurityStamp = "34be6814-dac2-4974-a82d-9249300baf3b",
                             TwoFactorEnabled = false,
                             UserName = "provide3@provide.com"
                         });
