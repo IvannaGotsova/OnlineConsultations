@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using static OnlineConsultations.Data.DataConstants.DataConstants.ApplicationUserConstants;
 
-namespace OnlineConsultations.Models.ApplicationUserModels
+namespace OnlineConsultations.Data.Models.ApplicationUserModels
 {
     public class LoginModelView
     {
