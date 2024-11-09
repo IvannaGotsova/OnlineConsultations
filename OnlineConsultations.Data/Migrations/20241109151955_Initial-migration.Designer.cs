@@ -12,8 +12,8 @@ using OnlineConsultations.Data;
 namespace OnlineConsultations.Data.Migrations
 {
     [DbContext(typeof(OnlineConsultationsDbContext))]
-    [Migration("20241107200734_Seed-migration")]
-    partial class Seedmigration
+    [Migration("20241109151955_Initial-migration")]
+    partial class Initialmigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -357,15 +357,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "admin@admin.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0f2cb6ec-5d22-4b92-8e46-4736f1a6cff1",
+                            ConcurrencyStamp = "e021d8f6-9d30-4582-8c68-f24b15e7033f",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             FirstName = "AdminFirstName",
                             LastName = "AdminLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEFxlY6h9qfYueFS4o+LbuttO/HKnXRttsEQahzaYEbzEzA5Zw1lLnMVTVVL0WCt5cQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJ3cdHfh10XOeXN4JEWAy+x40iTnzw11j72Dck6wRxHarGFX88XqMn6WgWNTM7y5vg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "eccb1f6f-e5dc-406a-b915-f8ba60516d77",
+                            SecurityStamp = "f097f7cd-7d8c-43c7-a7b8-7f64558a4506",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         },
@@ -373,15 +373,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "guest1@guest.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c4fbd193-549b-4034-abcd-57c6c81425be",
+                            ConcurrencyStamp = "4eb5f884-244c-4c5c-9f22-12989274ddb0",
                             Email = "guest1@guest.com",
                             EmailConfirmed = false,
                             FirstName = "GuestOneFirstName",
                             LastName = "GuestOneLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEMQaue3+H1CF4nWCcgwNTeI99aUePQZb+V3HheNqcEgAQoFsN0GIzOOG0yb8FXVSiw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEI54t8zgN4Zl4EhFC1unZG0MUolUIOwhS3oHE04IZAiKfVlbhJFiUZ/7F6wln7bM6Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "da873625-bf95-4484-aadb-c49c2ba03066",
+                            SecurityStamp = "d7e508fd-0702-4eaa-bc4e-c3e4b252fa14",
                             TwoFactorEnabled = false,
                             UserName = "guest1@guest.com"
                         },
@@ -389,15 +389,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "guest2@guest.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cf88f0a8-3008-47ba-a9bf-def83807bd61",
+                            ConcurrencyStamp = "83a4d944-e784-4cd8-a702-f2e5dcdd8966",
                             Email = "guest2@guest.com",
                             EmailConfirmed = false,
                             FirstName = "GuestTwoFirstName",
                             LastName = "GuestTwoLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEGDZuZ4vZI/w+mby8wBSG1UsWMQTUVR/2Vy1UtLAku3jsK7mv7S423K4vno8UZOJBQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHI8WNCgN7mnpQJZDE0LI35nlmlsec1B15F2EIRCAI0p5qKo/emuWp3oyDM2dT1Cgg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "76c52747-ab56-4b9e-824a-3acb2edbf149",
+                            SecurityStamp = "2fd69655-9e80-4870-a04d-47d522bad4fe",
                             TwoFactorEnabled = false,
                             UserName = "guest2@guest.com"
                         },
@@ -405,15 +405,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "guest3@guest.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fdb9ed03-effe-4d24-880e-a13d8cc38723",
+                            ConcurrencyStamp = "0ff8d0f1-f783-4dda-98d5-e07c346e6177",
                             Email = "guest3@guest.com",
                             EmailConfirmed = false,
                             FirstName = "GuestThreeFirstName",
                             LastName = "GuestThreeLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEIpFfvs6YMpXKJ8hLoernXSjIcktK4mF2OElMHD69OqStoAY+a98rMk5J/2T8VeshQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEF6MsNmLxf6LvIUNKZMvBGIHx2OzFshdURU5/qEho+vUqjfcr1XXrfjInjJ/l9biww==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0e8607d4-b67a-4238-aca5-0edc50c34c9d",
+                            SecurityStamp = "d026c306-d5b5-49de-9c8c-86c0ac917c09",
                             TwoFactorEnabled = false,
                             UserName = "guest3@guest.com"
                         },
@@ -421,15 +421,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "search1@search.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2edbff31-d963-423c-a02d-944bf7109763",
+                            ConcurrencyStamp = "b583dd63-f53b-4d14-88c2-9a808650c1a5",
                             Email = "search1@search.com",
                             EmailConfirmed = false,
                             FirstName = "SearchOneFirstName",
                             LastName = "SearchOneLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEGRPGXTmDEIl34EqxFdsu1QvbRfxPClB+BzNs2joh2G49Jb1TvqUu9lNZjOvlgZ7EA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDSxTeVldzHnQVpPhNGQW0zVN+wR8HP3yDnl9KPU98NaoWiOj9ALfQ4zxaWd7/ERdQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e3d89729-08c4-4a16-adf4-c9da4ec12bf9",
+                            SecurityStamp = "9d79d625-6741-4da0-83d5-73be7f68075f",
                             TwoFactorEnabled = false,
                             UserName = "search1@search.com"
                         },
@@ -437,15 +437,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "search2@search.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c2dbeaa6-cbc6-44a6-aeaa-949c5a4a4f70",
+                            ConcurrencyStamp = "cfda0e09-7890-42e8-a972-ea6ca2128ffd",
                             Email = "search2@search.com",
                             EmailConfirmed = false,
                             FirstName = "SearchTwoFirstName",
                             LastName = "SearchTwoLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEJwekQUHgTY1cRu9mk9VCNUfnsLcBOo4gn3ZKdWmhXvIOArsXzWpbFUMGQVyzJ7AAw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEN8bXN2vs4ARe4bmOp8JGglKS/+tZz1dhF2KiV2P8o7DOKtKOtipKcIyZLIoGyjcCQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f1c51a1e-9220-42c2-83e4-4f4f093ad416",
+                            SecurityStamp = "41b8acfb-29d6-474e-96de-537ab67af287",
                             TwoFactorEnabled = false,
                             UserName = "search2@search.com"
                         },
@@ -453,15 +453,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "search3@search.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "74499b7a-a0d7-4eee-a81b-023d5c39dcd8",
+                            ConcurrencyStamp = "b984478c-bfa9-4dd7-bc12-7e8557db4a5d",
                             Email = "search3@search.com",
                             EmailConfirmed = false,
                             FirstName = "SearchThreeFirstName",
                             LastName = "SearchThreeLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEDhAh8HvenR2he+93FdxM/iH6lhDBCSe/JCrZ2jEXAEpXsYjd3+2A7gb9HNjFabMtQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENkmSoyo5BP6/Rremumi+sgFs0YR5BudYyte8oJpRZ/5dfrJZnMud55UCzf/MAre6A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "43bee3ec-7704-4d54-84a8-433b2d6c537b",
+                            SecurityStamp = "26606702-f53a-4f6a-83e7-b2640c086275",
                             TwoFactorEnabled = false,
                             UserName = "search3@search.com"
                         },
@@ -469,15 +469,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "provide1@provide.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9cc6af45-4932-4d26-97d9-2275d3cb87e1",
+                            ConcurrencyStamp = "48ed3f2c-7bed-4dca-97ce-9a510ae51a84",
                             Email = "provide1@provide.com",
                             EmailConfirmed = false,
                             FirstName = "ProvideOneFirstName",
                             LastName = "ProvideOneLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEAkakCOY1y/Zv8g+K5z60oIIOf0UQs9g2doeEZwD2HmCiZK8Z+uWSJE7hs/+57p/zQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMSyq58qQ3NcL1LNYlw5mBvAA/9EfwoTpf2F2X+nak4phhxM9/RCPLTRvzhrOYEpsQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "13eabb45-6f93-4dad-9ad4-e18279e7e115",
+                            SecurityStamp = "f378ffdd-3bf1-4e55-8e72-328a00ef16c6",
                             TwoFactorEnabled = false,
                             UserName = "provide1@provide.com"
                         },
@@ -485,15 +485,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "provide2@provide.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ae23081c-3476-48b0-906c-b0a98e7f7549",
+                            ConcurrencyStamp = "69459317-9855-4708-be7c-375f3bc15aed",
                             Email = "provide2@provide.com",
                             EmailConfirmed = false,
                             FirstName = "ProvideTwoFirstName",
                             LastName = "ProvideTwoLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEO3Lvoy/pOq2RAOwkVcoUCOEgieCwC51aJrpi7kFUhZdH/ddV2XcFgyICmVvRzrw+Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBYRSaITzYYiZAsdLrIWBXkQFJakwKlailDX5r+VNzc/0lYWgJLW6jOITw/p6q1YUg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "45d23a1c-c874-4fca-a55c-476998ae7436",
+                            SecurityStamp = "9c892671-b1d9-490a-8df7-5a0ab1f36c87",
                             TwoFactorEnabled = false,
                             UserName = "provide2@provide.com"
                         },
@@ -501,15 +501,15 @@ namespace OnlineConsultations.Data.Migrations
                         {
                             Id = "provide3@provide.com",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6cf92602-861e-4e2e-a1ea-b2cae916d973",
+                            ConcurrencyStamp = "d4ff5145-1712-4f53-950a-0ee77af18eb9",
                             Email = "provide3@provide.com",
                             EmailConfirmed = false,
                             FirstName = "ProvideThreeFirstName",
                             LastName = "ProvideThreeLastName",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEJbN1m+aEpadhZfiF1AftdybFUtMg8k+4rcOE4M5nGzJ4nNVDUr+YNro231qFYyDoA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKu9n+nE31QIkX2Xe2gDHzbPS56CuZejoGddeWR/2pjrfavP6CYNIVtdrcj9B6oUYA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "34be6814-dac2-4974-a82d-9249300baf3b",
+                            SecurityStamp = "78995b8c-079e-4a3a-8eae-575abdee580c",
                             TwoFactorEnabled = false,
                             UserName = "provide3@provide.com"
                         });
@@ -536,10 +536,10 @@ namespace OnlineConsultations.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("GuestUserId")
+                    b.Property<int?>("GuestUserId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SearchUserId")
+                    b.Property<int?>("SearchUserId")
                         .HasColumnType("int");
 
                     b.HasKey("CommentId");
@@ -559,8 +559,7 @@ namespace OnlineConsultations.Data.Migrations
                             AnswerId = 1,
                             CommentDescription = "Comment First",
                             CommentTitle = "First",
-                            GuestUserId = 1,
-                            SearchUserId = 0
+                            GuestUserId = 1
                         },
                         new
                         {
@@ -568,8 +567,7 @@ namespace OnlineConsultations.Data.Migrations
                             AnswerId = 1,
                             CommentDescription = "Comment Second",
                             CommentTitle = "Second",
-                            GuestUserId = 1,
-                            SearchUserId = 0
+                            GuestUserId = 1
                         },
                         new
                         {
@@ -577,8 +575,7 @@ namespace OnlineConsultations.Data.Migrations
                             AnswerId = 2,
                             CommentDescription = "Comment Third",
                             CommentTitle = "Third",
-                            GuestUserId = 2,
-                            SearchUserId = 0
+                            GuestUserId = 2
                         },
                         new
                         {
@@ -586,8 +583,7 @@ namespace OnlineConsultations.Data.Migrations
                             AnswerId = 3,
                             CommentDescription = "Comment Fourth",
                             CommentTitle = "Fourth",
-                            GuestUserId = 2,
-                            SearchUserId = 0
+                            GuestUserId = 2
                         },
                         new
                         {
@@ -595,8 +591,7 @@ namespace OnlineConsultations.Data.Migrations
                             AnswerId = 3,
                             CommentDescription = "Comment Fifth",
                             CommentTitle = "Fifth",
-                            GuestUserId = 1,
-                            SearchUserId = 0
+                            GuestUserId = 1
                         },
                         new
                         {
@@ -604,7 +599,6 @@ namespace OnlineConsultations.Data.Migrations
                             AnswerId = 3,
                             CommentDescription = "Comment Sixth",
                             CommentTitle = "Sixth",
-                            GuestUserId = 0,
                             SearchUserId = 1
                         },
                         new
@@ -613,7 +607,6 @@ namespace OnlineConsultations.Data.Migrations
                             AnswerId = 2,
                             CommentDescription = "Comment Seventh",
                             CommentTitle = "Seventh",
-                            GuestUserId = 0,
                             SearchUserId = 1
                         },
                         new
@@ -622,7 +615,6 @@ namespace OnlineConsultations.Data.Migrations
                             AnswerId = 4,
                             CommentDescription = "Comment Eight",
                             CommentTitle = "Eight",
-                            GuestUserId = 0,
                             SearchUserId = 2
                         },
                         new
@@ -631,7 +623,6 @@ namespace OnlineConsultations.Data.Migrations
                             AnswerId = 1,
                             CommentDescription = "Comment Ninth",
                             CommentTitle = "Ninth",
-                            GuestUserId = 0,
                             SearchUserId = 2
                         },
                         new
@@ -640,7 +631,6 @@ namespace OnlineConsultations.Data.Migrations
                             AnswerId = 2,
                             CommentDescription = "Comment Tenth",
                             CommentTitle = "Tenth",
-                            GuestUserId = 0,
                             SearchUserId = 2
                         },
                         new
@@ -649,7 +639,6 @@ namespace OnlineConsultations.Data.Migrations
                             AnswerId = 2,
                             CommentDescription = "Comment Eleven",
                             CommentTitle = "Eleven",
-                            GuestUserId = 0,
                             SearchUserId = 3
                         },
                         new
@@ -658,7 +647,6 @@ namespace OnlineConsultations.Data.Migrations
                             AnswerId = 2,
                             CommentDescription = "Comment Twelve",
                             CommentTitle = "Twelve",
-                            GuestUserId = 0,
                             SearchUserId = 3
                         });
                 });
@@ -900,7 +888,7 @@ namespace OnlineConsultations.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuestionId"));
 
-                    b.Property<int>("GuestUserId")
+                    b.Property<int?>("GuestUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("QuestionDate")
@@ -916,7 +904,7 @@ namespace OnlineConsultations.Data.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("SearchUserId")
+                    b.Property<int?>("SearchUserId")
                         .HasColumnType("int");
 
                     b.HasKey("QuestionId");
@@ -931,7 +919,6 @@ namespace OnlineConsultations.Data.Migrations
                         new
                         {
                             QuestionId = 1,
-                            GuestUserId = 0,
                             QuestionDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionDescription = "First Description",
                             QuestionTitle = "First",
@@ -940,7 +927,6 @@ namespace OnlineConsultations.Data.Migrations
                         new
                         {
                             QuestionId = 2,
-                            GuestUserId = 0,
                             QuestionDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionDescription = "Second Description",
                             QuestionTitle = "Second",
@@ -949,7 +935,6 @@ namespace OnlineConsultations.Data.Migrations
                         new
                         {
                             QuestionId = 3,
-                            GuestUserId = 0,
                             QuestionDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionDescription = "Third Description",
                             QuestionTitle = "Third",
@@ -961,8 +946,7 @@ namespace OnlineConsultations.Data.Migrations
                             GuestUserId = 1,
                             QuestionDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionDescription = "Fourth Description",
-                            QuestionTitle = "Fourth",
-                            SearchUserId = 0
+                            QuestionTitle = "Fourth"
                         });
                 });
 
@@ -1285,15 +1269,11 @@ namespace OnlineConsultations.Data.Migrations
 
                     b.HasOne("OnlineConsultations.Data.Entities.GuestUser", "GuestUser")
                         .WithMany()
-                        .HasForeignKey("GuestUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GuestUserId");
 
                     b.HasOne("OnlineConsultations.Data.Entities.SearchUser", "SearchUser")
                         .WithMany()
-                        .HasForeignKey("SearchUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SearchUserId");
 
                     b.Navigation("Answer");
 
@@ -1358,15 +1338,11 @@ namespace OnlineConsultations.Data.Migrations
                 {
                     b.HasOne("OnlineConsultations.Data.Entities.GuestUser", "GuestUser")
                         .WithMany()
-                        .HasForeignKey("GuestUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GuestUserId");
 
                     b.HasOne("OnlineConsultations.Data.Entities.SearchUser", "SearchUser")
                         .WithMany()
-                        .HasForeignKey("SearchUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SearchUserId");
 
                     b.Navigation("GuestUser");
 

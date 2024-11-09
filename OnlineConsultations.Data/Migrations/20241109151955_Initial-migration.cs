@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace OnlineConsultations.Data.Migrations
 {
     /// <inheritdoc />
@@ -262,7 +264,7 @@ namespace OnlineConsultations.Data.Migrations
                         column: x => x.SearchUserId,
                         principalTable: "SearchUsers",
                         principalColumn: "SearchUserId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -274,8 +276,8 @@ namespace OnlineConsultations.Data.Migrations
                     QuestionTitle = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     QuestionDescription = table.Column<string>(type: "nvarchar(max)", maxLength: 200000, nullable: false),
                     QuestionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    GuestUserId = table.Column<int>(type: "int", nullable: false),
-                    SearchUserId = table.Column<int>(type: "int", nullable: false)
+                    GuestUserId = table.Column<int>(type: "int", nullable: true),
+                    SearchUserId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -284,14 +286,12 @@ namespace OnlineConsultations.Data.Migrations
                         name: "FK_Questions_GuestUsers_GuestUserId",
                         column: x => x.GuestUserId,
                         principalTable: "GuestUsers",
-                        principalColumn: "GuestUserId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "GuestUserId");
                     table.ForeignKey(
                         name: "FK_Questions_SearchUsers_SearchUserId",
                         column: x => x.SearchUserId,
                         principalTable: "SearchUsers",
-                        principalColumn: "SearchUserId",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "SearchUserId");
                 });
 
             migrationBuilder.CreateTable(
@@ -318,7 +318,7 @@ namespace OnlineConsultations.Data.Migrations
                         column: x => x.SearchUserId,
                         principalTable: "SearchUsers",
                         principalColumn: "SearchUserId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -346,7 +346,7 @@ namespace OnlineConsultations.Data.Migrations
                         column: x => x.SearchUserId,
                         principalTable: "SearchUsers",
                         principalColumn: "SearchUserId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -374,7 +374,7 @@ namespace OnlineConsultations.Data.Migrations
                         column: x => x.QuestionId,
                         principalTable: "Questions",
                         principalColumn: "QuestionId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -385,8 +385,8 @@ namespace OnlineConsultations.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CommentTitle = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     CommentDescription = table.Column<string>(type: "nvarchar(max)", maxLength: 200000, nullable: false),
-                    GuestUserId = table.Column<int>(type: "int", nullable: false),
-                    SearchUserId = table.Column<int>(type: "int", nullable: false),
+                    GuestUserId = table.Column<int>(type: "int", nullable: true),
+                    SearchUserId = table.Column<int>(type: "int", nullable: true),
                     AnswerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -402,14 +402,164 @@ namespace OnlineConsultations.Data.Migrations
                         name: "FK_Comments_GuestUsers_GuestUserId",
                         column: x => x.GuestUserId,
                         principalTable: "GuestUsers",
-                        principalColumn: "GuestUserId",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "GuestUserId");
                     table.ForeignKey(
                         name: "FK_Comments_SearchUsers_SearchUserId",
                         column: x => x.SearchUserId,
                         principalTable: "SearchUsers",
-                        principalColumn: "SearchUserId",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "SearchUserId");
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "admin@admin.com", 0, "e021d8f6-9d30-4582-8c68-f24b15e7033f", "admin@admin.com", false, "AdminFirstName", "AdminLastName", false, null, null, null, "AQAAAAIAAYagAAAAEJ3cdHfh10XOeXN4JEWAy+x40iTnzw11j72Dck6wRxHarGFX88XqMn6WgWNTM7y5vg==", null, false, "f097f7cd-7d8c-43c7-a7b8-7f64558a4506", false, "admin@admin.com" },
+                    { "guest1@guest.com", 0, "4eb5f884-244c-4c5c-9f22-12989274ddb0", "guest1@guest.com", false, "GuestOneFirstName", "GuestOneLastName", false, null, null, null, "AQAAAAIAAYagAAAAEI54t8zgN4Zl4EhFC1unZG0MUolUIOwhS3oHE04IZAiKfVlbhJFiUZ/7F6wln7bM6Q==", null, false, "d7e508fd-0702-4eaa-bc4e-c3e4b252fa14", false, "guest1@guest.com" },
+                    { "guest2@guest.com", 0, "83a4d944-e784-4cd8-a702-f2e5dcdd8966", "guest2@guest.com", false, "GuestTwoFirstName", "GuestTwoLastName", false, null, null, null, "AQAAAAIAAYagAAAAEHI8WNCgN7mnpQJZDE0LI35nlmlsec1B15F2EIRCAI0p5qKo/emuWp3oyDM2dT1Cgg==", null, false, "2fd69655-9e80-4870-a04d-47d522bad4fe", false, "guest2@guest.com" },
+                    { "guest3@guest.com", 0, "0ff8d0f1-f783-4dda-98d5-e07c346e6177", "guest3@guest.com", false, "GuestThreeFirstName", "GuestThreeLastName", false, null, null, null, "AQAAAAIAAYagAAAAEF6MsNmLxf6LvIUNKZMvBGIHx2OzFshdURU5/qEho+vUqjfcr1XXrfjInjJ/l9biww==", null, false, "d026c306-d5b5-49de-9c8c-86c0ac917c09", false, "guest3@guest.com" },
+                    { "provide1@provide.com", 0, "48ed3f2c-7bed-4dca-97ce-9a510ae51a84", "provide1@provide.com", false, "ProvideOneFirstName", "ProvideOneLastName", false, null, null, null, "AQAAAAIAAYagAAAAEMSyq58qQ3NcL1LNYlw5mBvAA/9EfwoTpf2F2X+nak4phhxM9/RCPLTRvzhrOYEpsQ==", null, false, "f378ffdd-3bf1-4e55-8e72-328a00ef16c6", false, "provide1@provide.com" },
+                    { "provide2@provide.com", 0, "69459317-9855-4708-be7c-375f3bc15aed", "provide2@provide.com", false, "ProvideTwoFirstName", "ProvideTwoLastName", false, null, null, null, "AQAAAAIAAYagAAAAEBYRSaITzYYiZAsdLrIWBXkQFJakwKlailDX5r+VNzc/0lYWgJLW6jOITw/p6q1YUg==", null, false, "9c892671-b1d9-490a-8df7-5a0ab1f36c87", false, "provide2@provide.com" },
+                    { "provide3@provide.com", 0, "d4ff5145-1712-4f53-950a-0ee77af18eb9", "provide3@provide.com", false, "ProvideThreeFirstName", "ProvideThreeLastName", false, null, null, null, "AQAAAAIAAYagAAAAEKu9n+nE31QIkX2Xe2gDHzbPS56CuZejoGddeWR/2pjrfavP6CYNIVtdrcj9B6oUYA==", null, false, "78995b8c-079e-4a3a-8eae-575abdee580c", false, "provide3@provide.com" },
+                    { "search1@search.com", 0, "b583dd63-f53b-4d14-88c2-9a808650c1a5", "search1@search.com", false, "SearchOneFirstName", "SearchOneLastName", false, null, null, null, "AQAAAAIAAYagAAAAEDSxTeVldzHnQVpPhNGQW0zVN+wR8HP3yDnl9KPU98NaoWiOj9ALfQ4zxaWd7/ERdQ==", null, false, "9d79d625-6741-4da0-83d5-73be7f68075f", false, "search1@search.com" },
+                    { "search2@search.com", 0, "cfda0e09-7890-42e8-a972-ea6ca2128ffd", "search2@search.com", false, "SearchTwoFirstName", "SearchTwoLastName", false, null, null, null, "AQAAAAIAAYagAAAAEN8bXN2vs4ARe4bmOp8JGglKS/+tZz1dhF2KiV2P8o7DOKtKOtipKcIyZLIoGyjcCQ==", null, false, "41b8acfb-29d6-474e-96de-537ab67af287", false, "search2@search.com" },
+                    { "search3@search.com", 0, "b984478c-bfa9-4dd7-bc12-7e8557db4a5d", "search3@search.com", false, "SearchThreeFirstName", "SearchThreeLastName", false, null, null, null, "AQAAAAIAAYagAAAAENkmSoyo5BP6/Rremumi+sgFs0YR5BudYyte8oJpRZ/5dfrJZnMud55UCzf/MAre6A==", null, false, "26606702-f53a-4f6a-83e7-b2640c086275", false, "search3@search.com" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "GuestUsers",
+                columns: new[] { "GuestUserId", "ApplicationUserId" },
+                values: new object[,]
+                {
+                    { 1, "guest1@guest.com" },
+                    { 2, "guest2@guest.com" },
+                    { 3, "guest3@guest.com" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ProvideUsers",
+                columns: new[] { "ProvideUserId", "ApplicationUserId" },
+                values: new object[,]
+                {
+                    { 1, "provide1@provide.com" },
+                    { 2, "provide2@provide.com" },
+                    { 3, "provide3@provide.com" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "SearchUsers",
+                columns: new[] { "SearchUserId", "ApplicationUserId" },
+                values: new object[,]
+                {
+                    { 1, "search1@search.com" },
+                    { 2, "search2@search.com" },
+                    { 3, "search3@search.com" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Messages",
+                columns: new[] { "MessageId", "MessageDescription", "ProvideUserId", "SearchUserId" },
+                values: new object[,]
+                {
+                    { 1, "First message", 1, 1 },
+                    { 2, "Second message", 1, 2 },
+                    { 3, "Third message", 2, 3 },
+                    { 4, "Fourth message", 1, 1 },
+                    { 5, "Fifth message", 3, 2 },
+                    { 6, "Sixth message", 1, 3 },
+                    { 7, "Seventh message", 3, 1 },
+                    { 8, "Eight message", 1, 2 },
+                    { 9, "Ninth message", 2, 1 },
+                    { 10, "Tenth message", 2, 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Posts",
+                columns: new[] { "PostId", "PostDescription", "PostPayPerHour", "PostTitle", "ProvideUserId" },
+                values: new object[,]
+                {
+                    { 1, "First Description", 22m, "First post", 1 },
+                    { 2, "Second Description", 24m, "Second post", 2 },
+                    { 3, "Third Description", 22m, "Third post", 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Questions",
+                columns: new[] { "QuestionId", "GuestUserId", "QuestionDate", "QuestionDescription", "QuestionTitle", "SearchUserId" },
+                values: new object[,]
+                {
+                    { 1, null, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "First Description", "First", 1 },
+                    { 2, null, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Second Description", "Second", 2 },
+                    { 3, null, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Third Description", "Third", 3 },
+                    { 4, 1, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Fourth Description", "Fourth", null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Ratings",
+                columns: new[] { "RatingId", "ProvideUserId", "RatingValue", "SearchUserId" },
+                values: new object[,]
+                {
+                    { 1, 1, 10, 1 },
+                    { 2, 2, 9, 1 },
+                    { 3, 3, 8, 1 },
+                    { 4, 1, 10, 2 },
+                    { 5, 2, 9, 2 },
+                    { 6, 3, 9, 2 },
+                    { 7, 1, 8, 3 },
+                    { 8, 2, 9, 3 },
+                    { 9, 3, 10, 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Reviews",
+                columns: new[] { "ReviewId", "ProvideUserId", "ReviewDate", "ReviewDescription", "SearchUserId" },
+                values: new object[,]
+                {
+                    { 1, 1, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "First description", 1 },
+                    { 2, 2, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Second description", 1 },
+                    { 3, 3, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Third description", 1 },
+                    { 4, 1, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Fourth description", 2 },
+                    { 5, 2, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Fifth description", 2 },
+                    { 6, 3, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Sixth description", 2 },
+                    { 7, 1, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Seventh description", 3 },
+                    { 8, 2, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Eight description", 3 },
+                    { 9, 3, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ninth description", 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Answers",
+                columns: new[] { "AnswerId", "AnswerDate", "AnswerDescription", "ProvideUserId", "QuestionId" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Answer First", 1, 1 },
+                    { 2, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Answer Second", 1, 2 },
+                    { 3, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Answer Third", 1, 3 },
+                    { 4, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Answer Fourth", 2, 1 },
+                    { 5, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Answer Fifth", 2, 3 },
+                    { 6, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Answer Sixth", 2, 3 },
+                    { 7, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Answer Seventh", 3, 2 },
+                    { 8, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Answer Eighth", 3, 2 },
+                    { 9, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Answer Ninth", 3, 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Comments",
+                columns: new[] { "CommentId", "AnswerId", "CommentDescription", "CommentTitle", "GuestUserId", "SearchUserId" },
+                values: new object[,]
+                {
+                    { 1, 1, "Comment First", "First", 1, null },
+                    { 2, 1, "Comment Second", "Second", 1, null },
+                    { 3, 2, "Comment Third", "Third", 2, null },
+                    { 4, 3, "Comment Fourth", "Fourth", 2, null },
+                    { 5, 3, "Comment Fifth", "Fifth", 1, null },
+                    { 6, 3, "Comment Sixth", "Sixth", null, 1 },
+                    { 7, 2, "Comment Seventh", "Seventh", null, 1 },
+                    { 8, 4, "Comment Eight", "Eight", null, 2 },
+                    { 9, 1, "Comment Ninth", "Ninth", null, 2 },
+                    { 10, 2, "Comment Tenth", "Tenth", null, 2 },
+                    { 11, 2, "Comment Eleven", "Eleven", null, 3 },
+                    { 12, 2, "Comment Twelve", "Twelve", null, 3 }
                 });
 
             migrationBuilder.CreateIndex(
