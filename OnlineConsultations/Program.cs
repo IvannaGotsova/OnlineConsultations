@@ -26,6 +26,11 @@ builder.Services.AddDefaultIdentity<ApplicationUser>
         options.Password.RequireNonAlphanumeric = false;
         options.Password.RequireDigit = true;
         options.User.RequireUniqueEmail = true;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequiredUniqueChars = '1';
+        options.Password.RequiredUniqueChars = '2';
+        options.Password.RequiredUniqueChars = '3';
 
     })
     .AddRoles<ApplicationRole>()
