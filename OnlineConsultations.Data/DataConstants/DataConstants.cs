@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineConsultations.Data.DataConstants
 {
-    internal class DataConstants
+    public class DataConstants
     {
         public class AnswerConstants
         {
