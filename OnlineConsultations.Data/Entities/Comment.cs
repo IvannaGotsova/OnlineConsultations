@@ -23,12 +23,12 @@ namespace OnlineConsultations.Data.Entities
         [StringLength(CommentDescriptionMaxLength)]
         public required string CommentDescription { get; set; }
 
-        public int GuestUserId { get; set; }
+        public int? GuestUserId { get; set; } = null;
 
         [ForeignKey(nameof(GuestUserId))]
         public GuestUser? GuestUser { get; set; }
 
-        public int SearchUserId { get; set; } 
+        public int? SearchUserId { get; set; } = null; 
 
         [ForeignKey(nameof(SearchUserId))]
         public SearchUser? SearchUser { get; set; } 
