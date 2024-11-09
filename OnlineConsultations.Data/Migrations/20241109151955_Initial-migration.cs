@@ -264,7 +264,7 @@ namespace OnlineConsultations.Data.Migrations
                         column: x => x.SearchUserId,
                         principalTable: "SearchUsers",
                         principalColumn: "SearchUserId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -318,7 +318,7 @@ namespace OnlineConsultations.Data.Migrations
                         column: x => x.SearchUserId,
                         principalTable: "SearchUsers",
                         principalColumn: "SearchUserId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -346,7 +346,7 @@ namespace OnlineConsultations.Data.Migrations
                         column: x => x.SearchUserId,
                         principalTable: "SearchUsers",
                         principalColumn: "SearchUserId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
