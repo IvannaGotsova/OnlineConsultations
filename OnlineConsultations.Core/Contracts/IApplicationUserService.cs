@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineConsultations.Core.Contracts
 {
-    internal interface IApplicationUserService
+    public interface IApplicationUserService
     {
     }
 }
