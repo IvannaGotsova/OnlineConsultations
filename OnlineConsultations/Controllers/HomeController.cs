@@ -11,6 +11,26 @@ namespace OnlineConsultations.Controllers
             return View();
         }
 
+        public IActionResult News()
+        {
+            return View();
+        }
+
+        public IActionResult FAQs()
+        {
+            return View();
+        }
+
+        public IActionResult Contacts()
+        {
+            return View();
+        }
+        
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
