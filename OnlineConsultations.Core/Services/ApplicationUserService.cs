@@ -25,9 +25,20 @@ namespace OnlineConsultations.Core.Services
                 .SaveChangesAsync();
         }
 
-        public Task<ApplicationUserModelView> DeleteCreateForm(string userId)
+        public async Task<ApplicationUserModelView> DeleteCreateForm(string userId)
         {
-            throw new NotImplementedException();
+            var userToBeDeleted = await
+                GetApplicaionUserById(userId);
+
+            var deleteApplicationUserModel = new ApplicationUserModelView()
+            {
+                Id = userToBeDeleted!.Id,
+                UserName = userToBeDeleted!.UserName,
+                FirstName = userToBeDeleted!.FirstName,
+                LastName = userToBeDeleted!.LastName,
+            };
+
+            return deleteApplicationUserModel;
         }
 
         public Task<ApplicationUser> GetApplicaionUserById(string userId)
