@@ -74,7 +74,7 @@ namespace OnlineConsultations.Controllers
 
 
 
-            return RedirectToAction("Login", "ApplicationUsers");
+            return RedirectToAction("Login", "ApplicationUser");
         }
         
         [HttpGet]
