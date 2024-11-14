@@ -75,24 +75,14 @@ namespace OnlineConsultations.Core.Services
                 .ToList();
         }
 
-        public Task<IEnumerable<ApplicationUser>> GetApplicationUsersForSelect()
+        public async Task<IEnumerable<ApplicationUser>> GetApplicationUsersForSelect()
         {
-            throw new NotImplementedException();
+            return await
+                this.data
+                .AllReadonly<ApplicationUser>()
+                .ToListAsync();
         }
 
-        public Task<IEnumerable<ApplicationUserModelView>> GetApplicationVIPUsers()
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task MakeVIP(string userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task RemoveVIP(string userId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
