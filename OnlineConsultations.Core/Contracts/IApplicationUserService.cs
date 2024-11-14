@@ -12,17 +12,11 @@ namespace OnlineConsultations.Core.Contracts
     {
         Task<IEnumerable<ApplicationUserModelView>> GetApplicationUsers();
 
-        Task<IEnumerable<ApplicationUserModelView>> GetApplicationVIPUsers();
-
         Task<ApplicationUser> GetApplicaionUserById(string userId);
       
         Task<ApplicationUserModelView> DeleteCreateForm(string userId);
      
         Task Delete(string userId);
-       
-        Task MakeVIP(string userId);
-        
-        Task RemoveVIP(string userId);
        
         Task<IEnumerable<ApplicationUser>> GetApplicationUsersForSelect();
     }
