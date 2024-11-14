@@ -1,4 +1,5 @@
-﻿using OnlineConsultations.Core.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineConsultations.Core.Contracts;
 using OnlineConsultations.Data.Entities;
 using OnlineConsultations.Data.Models.ApplicationUserModels;
 using OnlineConsultations.Data.Repositories;
@@ -41,9 +42,19 @@ namespace OnlineConsultations.Core.Services
             return deleteApplicationUserModel;
         }
 
-        public Task<ApplicationUser> GetApplicaionUserById(string userId)
+        public async Task<ApplicationUser> GetApplicaionUserById(string userId)
         {
-            throw new NotImplementedException();
+            if (await this.data
+               .GetByIdAsync<ApplicationUser>(userId) == null)
+            {
+                throw new ArgumentNullException(null, nameof(userId));
+            }
+
+            return await
+               this.data
+               .AllReadonly<ApplicationUser>()
+               .Where(au => au.Id == userId)
+               .FirstAsync();
         }
 
         public Task<IEnumerable<ApplicationUserModelView>> GetApplicationUsers()
