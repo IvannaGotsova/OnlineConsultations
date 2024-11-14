@@ -19,7 +19,7 @@ namespace OnlineConsultations.Core.Contracts
         Task<ApplicationUserModelView> DeleteCreateForm(string userId);
      
         Task Delete(string userId);
-      
+       
         Task MakeVIP(string userId);
         
         Task RemoveVIP(string userId);
