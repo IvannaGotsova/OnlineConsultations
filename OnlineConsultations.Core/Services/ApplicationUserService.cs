@@ -57,9 +57,22 @@ namespace OnlineConsultations.Core.Services
                .FirstAsync();
         }
 
-        public Task<IEnumerable<ApplicationUserModelView>> GetApplicationUsers()
+        public async Task<IEnumerable<ApplicationUserModelView>> GetApplicationUsers()
         {
-            throw new NotImplementedException();
+            var allUsers = await
+                 this.data
+                 .AllReadonly<ApplicationUser>()
+                 .ToListAsync();
+
+            return allUsers
+                .Select(u => new ApplicationUserModelView()
+                {
+                    Id = u.Id,
+                    UserName = u.UserName,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                })
+                .ToList();
         }
 
         public Task<IEnumerable<ApplicationUser>> GetApplicationUsersForSelect()
