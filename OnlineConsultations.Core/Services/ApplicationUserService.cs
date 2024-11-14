@@ -47,7 +47,7 @@ namespace OnlineConsultations.Core.Services
             if (await this.data
                .GetByIdAsync<ApplicationUser>(userId) == null)
             {
-                throw new ArgumentNullException(null, nameof(userId));
+                throw new ArgumentNullException("Value cannot be null.", nameof(userId));
             }
 
             return await
