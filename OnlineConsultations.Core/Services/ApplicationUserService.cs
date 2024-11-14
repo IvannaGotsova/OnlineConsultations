@@ -17,9 +17,12 @@ namespace OnlineConsultations.Core.Services
         {
             this.data = data;
         }
-        public Task Delete(string userId)
+        public async Task Delete(string userId)
         {
-            throw new NotImplementedException();
+            await this.data
+               .DeleteAsync<ApplicationUser>(userId);
+            await this.data
+                .SaveChangesAsync();
         }
 
         public Task<ApplicationUserModelView> DeleteCreateForm(string userId)
