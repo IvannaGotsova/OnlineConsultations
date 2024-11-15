@@ -59,18 +59,19 @@ namespace OnlineConsultations.Core.Services
 
         public async Task<IEnumerable<ApplicationUserModelView>> GetApplicationUsers()
         {
-            var allUsers = await
+            var allApplicationUsers = await
                  this.data
                  .AllReadonly<ApplicationUser>()
                  .ToListAsync();
 
-            return allUsers
+            return allApplicationUsers
                 .Select(u => new ApplicationUserModelView()
                 {
                     Id = u.Id,
                     UserName = u.UserName,
                     FirstName = u.FirstName,
                     LastName = u.LastName,
+                    Email = u.Email
                 })
                 .ToList();
         }
