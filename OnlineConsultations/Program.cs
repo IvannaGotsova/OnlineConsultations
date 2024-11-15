@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using OnlineConsultations.Core.Contracts;
+using OnlineConsultations.Core.Services;
 using OnlineConsultations.Data;
 using OnlineConsultations.Data.Entities;
 using OnlineConsultations.Data.Repositories;
@@ -48,6 +50,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddScoped<IApplicationUserService, ApplicationUserService>();
 // !!! to add services later
 
 builder.Services.AddMemoryCache();
