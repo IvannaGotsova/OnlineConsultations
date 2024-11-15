@@ -21,5 +21,8 @@ namespace OnlineConsultations.Data.Models.ApplicationUserModels
         [Required]
         [StringLength(UserMaxLengthLastName, MinimumLength = UserMinLengthLastName)]
         public string? LastName { get; set; }
+        [Required]
+        [StringLength(UserMaxLengthEmail, MinimumLength = UserMinLengthEmail)]
+        public string? Email { get; set; }
     }
 }
