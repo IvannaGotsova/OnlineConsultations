@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using OnlineConsultations.Core.Contracts;
 using OnlineConsultations.Data.Entities;
 using OnlineConsultations.Data.Models.ApplicationUserModels;
 
@@ -10,13 +11,16 @@ namespace OnlineConsultations.Controllers
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
+        private readonly IApplicationUserService applicationUserService;
 
         public ApplicationUserController(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            IApplicationUserService applicationUserService)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.applicationUserService = applicationUserService;
         }
         
         public IActionResult Index()
@@ -137,6 +141,25 @@ namespace OnlineConsultations.Controllers
             TempData["message"] = $"Goodbye! We are waiting for you to come back";
 
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> AllApplicationUsers()
+        {
+            try
+            {
+                var allApplicationUsers = await
+                    applicationUserService
+                   .GetApplicationUsers();
+
+                return View(allApplicationUsers);
+            }
+            catch (Exception)
+            {
+
+                return RedirectToAction("Error", "Home", new { area = "" });
+            }
         }
     }
 }
