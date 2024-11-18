@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineConsultations.Data.Models.AnsReviewwer
+namespace OnlineConsultations.Data.Models.Review
 {
     public class DeleteReviewModelView
     {
