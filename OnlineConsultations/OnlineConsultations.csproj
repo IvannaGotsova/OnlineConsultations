@@ -34,6 +34,16 @@
 
   <ItemGroup>
     <Folder Include="ErrorConstants\" />
+    <Folder Include="Views\Answer\" />
+    <Folder Include="Views\Comment\" />
+    <Folder Include="Views\GuestUser\" />
+    <Folder Include="Views\Message\" />
+    <Folder Include="Views\SearchUser\" />
+    <Folder Include="Views\Review\" />
+    <Folder Include="Views\Rating\" />
+    <Folder Include="Views\Question\" />
+    <Folder Include="Views\ProvideUser\" />
+    <Folder Include="Views\Post\" />
   </ItemGroup>
 
   <ItemGroup>
