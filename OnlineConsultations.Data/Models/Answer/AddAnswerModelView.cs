@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineConsultations.Data.Models.Answer
 {
-    public class AddCommentModelView
+    public class AddAnswerModelView
     {
     }
 }
