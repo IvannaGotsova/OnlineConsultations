@@ -11,7 +11,7 @@ namespace OnlineConsultations.Core.Services
 {
     public class AnswerService : IAnswerService
     {
-        public Task Add(AddCommentModelView addAnswerModel)
+        public Task Add(AddAnswerModelView addAnswerModel)
         {
             throw new NotImplementedException();
         }
@@ -21,22 +21,22 @@ namespace OnlineConsultations.Core.Services
             throw new NotImplementedException();
         }
 
-        public Task<DeleteCommentModelView> DeleteAnswerForm(int answerId)
+        public Task<DeleteAnswerModelView> DeleteAnswerForm(int answerId)
         {
             throw new NotImplementedException();
         }
 
-        public Task Edit(int answerId, EditCommentModelView editAnswerModel)
+        public Task Edit(int answerId, EditAnswerModelView editAnswerModel)
         {
             throw new NotImplementedException();
         }
 
-        public Task<EditCommentModelView> EditCreateForm(int answerId)
+        public Task<EditAnswerModelView> EditCreateForm(int answerId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<AllCommentsModelView>> GetAllAnswers()
+        public Task<IEnumerable<AllAnswersModelView>> GetAllAnswers()
         {
             throw new NotImplementedException();
         }
@@ -46,7 +46,7 @@ namespace OnlineConsultations.Core.Services
             throw new NotImplementedException();
         }
 
-        public Task<DetailsCommentModelView> GetAnswerDetailsById(int answerId)
+        public Task<DetailsAnswerModelView> GetAnswerDetailsById(int answerId)
         {
             throw new NotImplementedException();
         }
