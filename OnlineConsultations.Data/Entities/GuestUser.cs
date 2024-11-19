@@ -10,6 +10,7 @@ namespace OnlineConsultations.Data.Entities
 {
     public class GuestUser 
     {
+        [Key]
         [Required]
         public int GuestUserId { get; set; } 
 
