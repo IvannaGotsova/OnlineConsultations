@@ -2,7 +2,6 @@
 using OnlineConsultations.Core.Contracts;
 using OnlineConsultations.Data.Entities;
 using OnlineConsultations.Data.Models.Message;
-using OnlineConsultations.Data.Models.Message;
 using OnlineConsultations.Data.Repositories;
 using System;
 using System.Collections.Generic;
