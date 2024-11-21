@@ -2,7 +2,6 @@
 using OnlineConsultations.Core.Contracts;
 using OnlineConsultations.Data.Entities;
 using OnlineConsultations.Data.Models.Post;
-using OnlineConsultations.Data.Models.Post;
 using OnlineConsultations.Data.Repositories;
 using System;
 using System.Collections.Generic;
@@ -134,7 +133,7 @@ namespace OnlineConsultations.Core.Services
                    PostId = p.PostId,
                    PostDescription = p.PostDescription,
                    PostTitle = p.PostTitle,
-                   PostPayPerHour = p.PostPayPerHour
+                   PostPayPerHour = p.PostPayPerHour,
                    ProvideUserId = p.ProvideUserId,
                }).FirstOrDefaultAsync();
 
