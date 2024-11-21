@@ -1,6 +1,9 @@
-﻿using OnlineConsultations.Core.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineConsultations.Core.Contracts;
 using OnlineConsultations.Data.Entities;
 using OnlineConsultations.Data.Models.Question;
+using OnlineConsultations.Data.Models.Question;
+using OnlineConsultations.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,49 +14,151 @@ namespace OnlineConsultations.Core.Services
 {
     public class QuestionService : IQuestionService
     {
-        public Task Add(AddQuestionModelView addQuestionModel)
+        private readonly IRepository data;
+
+        public QuestionService(IRepository data)
         {
-            throw new NotImplementedException();
+            this.data = data;
         }
 
-        public Task Delete(int questionId)
+        public async Task Add(AddQuestionModelView addQuestionModel)
         {
-            throw new NotImplementedException();
+            var questionToBeAdded = new Question()
+            {
+                QuestionTitle = addQuestionModel.QuestionTitle,
+                QuestionDescription = addQuestionModel.QuestionDescription,
+                QuestionDate = addQuestionModel.QuestionDate,
+                GuestUserId = addQuestionModel.GuestUserId, 
+                SearchUserId = addQuestionModel.SearchUserId
+            };
+
+            await this.data.AddAsync(questionToBeAdded);
+            await this.data.SaveChangesAsync();
         }
 
-        public Task<DeleteQuestionModelView> DeleteQuestionForm(int questionId)
+        public async Task Delete(int questionId)
         {
-            throw new NotImplementedException();
+            await this.data.DeleteAsync<Question>(questionId);
+            await this.data.SaveChangesAsync();
         }
 
-        public Task Edit(int questionId, EditQuestionModelView editQuestionModel)
+        public async Task<DeleteQuestionModelView> DeleteQuestionForm(int questionId)
         {
-            throw new NotImplementedException();
+            var questionToBeDeleted = await
+                GetQuestionById(questionId);
+
+            var deleteQuestionModel = new DeleteQuestionModelView()
+            {
+                QuestionId = questionToBeDeleted.QuestionId,
+                QuestionTitle = questionToBeDeleted.QuestionTitle,
+                QuestionDescription = questionToBeDeleted.QuestionDescription,
+                QuestionDate = questionToBeDeleted.QuestionDate,
+                GuestUserId = questionToBeDeleted.GuestUserId,
+                SearchUserId = questionToBeDeleted.SearchUserId
+            };
+
+            return deleteQuestionModel;
         }
 
-        public Task<EditQuestionModelView> EditCreateForm(int questionId)
+        public async Task Edit(int questionId, EditQuestionModelView editQuestionModel)
         {
-            throw new NotImplementedException();
+            var questionToBeEdited = await
+                GetQuestionById(questionId);
+
+            questionToBeEdited.QuestionDescription = editQuestionModel.QuestionDescription;
+            questionToBeEdited.QuestionTitle = editQuestionModel.QuestionTitle;
+            questionToBeEdited.QuestionDate = editQuestionModel.QuestionDate;
+            questionToBeEdited.SearchUserId = editQuestionModel.SearchUserId;
+            questionToBeEdited.GuestUserId = editQuestionModel.GuestUserId;
+
+            this.data.Update<Question>(questionToBeEdited);
+            await this.data.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<AllQuestionsModelView>> GetAllQuestions()
+        public async Task<EditQuestionModelView> EditCreateForm(int questionId)
         {
-            throw new NotImplementedException();
+            var questionToBeEdited = await
+                GetQuestionById(questionId);
+
+            var editQuestionModel = new EditQuestionModelView()
+            {
+                QuestionTitle = questionToBeEdited.QuestionTitle,
+                QuestionDescription = questionToBeEdited.QuestionDescription,
+                QuestionDate = questionToBeEdited.QuestionDate,
+                SearchUserId = questionToBeEdited.SearchUserId,
+                GuestUserId = questionToBeEdited.GuestUserId,
+            };
+
+            return editQuestionModel;
         }
 
-        public Task<Question> GetQuestionById(int questionId)
+        public async Task<IEnumerable<AllQuestionsModelView>> GetAllQuestions()
         {
-            throw new NotImplementedException();
+            var questions = await data
+               .AllReadonly<Question>()
+               .ToListAsync();
+
+            return questions
+                .Select(q => new AllQuestionsModelView()
+                {
+                    QuestionId = q.QuestionId,
+                    QuestionTitle = q.QuestionTitle,
+                    QuestionDescription = q.QuestionDescription,
+                    QuestionDate = q.QuestionDate,
+                    SearchUserId = q.SearchUserId,
+                    GuestUserId = q.GuestUserId,
+                })
+                .ToList();
         }
 
-        public Task<DetailsQuestionModelView> GetQuestionDetailsById(int questionId)
+        public async Task<Question> GetQuestionById(int questionId)
         {
-            throw new NotImplementedException();
+            var question = await
+              this.data
+              .AllReadonly<Question>()
+              .Where(q => q.QuestionId == questionId)
+              .FirstOrDefaultAsync();
+
+            if (question == null)
+            {
+                throw new ArgumentNullException(null, nameof(question));
+            }
+
+            return question;
         }
 
-        public Task<IEnumerable<Question>> GetQuestionsForSelect()
+        public async Task<DetailsQuestionModelView> GetQuestionDetailsById(int questionId)
         {
-            throw new NotImplementedException();
+            var question = await
+               this.data
+               .AllReadonly<Question>()
+               .Include(q => q.SearchUser)
+               .Include(q => q.GuestUser)
+               .Where(q => q.QuestionId == questionId)
+               .Select(q => new DetailsQuestionModelView()
+               {
+                   QuestionId = q.QuestionId,
+                   QuestionTitle = q.QuestionTitle,
+                   QuestionDescription = q.QuestionDescription,
+                   QuestionDate = q.QuestionDate,
+                   SearchUserId = q.SearchUserId,
+                   GuestUserId = q.GuestUserId,
+               }).FirstOrDefaultAsync();
+
+            if (question == null)
+            {
+                throw new ArgumentNullException(null, nameof(question));
+            }
+
+            return question;
+        }
+
+        public async Task<IEnumerable<Question>> GetQuestionsForSelect()
+        {
+            return await
+               this.data
+               .AllReadonly<Question>()
+               .ToListAsync();
         }
     }
 }
