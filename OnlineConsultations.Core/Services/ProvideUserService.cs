@@ -3,7 +3,6 @@ using OnlineConsultations.Core.Contracts;
 using OnlineConsultations.Data.Entities;
 using OnlineConsultations.Data.Models.Answer;
 using OnlineConsultations.Data.Models.ProvideUser;
-using OnlineConsultations.Data.Models.ProvideUser;
 using OnlineConsultations.Data.Repositories;
 using System;
 using System.Collections.Generic;
