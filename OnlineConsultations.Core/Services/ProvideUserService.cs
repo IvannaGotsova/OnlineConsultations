@@ -1,6 +1,10 @@
-﻿using OnlineConsultations.Core.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineConsultations.Core.Contracts;
 using OnlineConsultations.Data.Entities;
+using OnlineConsultations.Data.Models.Answer;
 using OnlineConsultations.Data.Models.ProvideUser;
+using OnlineConsultations.Data.Models.ProvideUser;
+using OnlineConsultations.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,49 +15,123 @@ namespace OnlineConsultations.Core.Services
 {
     public class ProvideUserService : IProvideUserService
     {
-        public Task Add(AddProvideUserModelView addProvideUserModel)
+        private readonly IRepository data;
+
+        public ProvideUserService(IRepository data)
         {
-            throw new NotImplementedException();
+            this.data = data;
         }
 
-        public Task Delete(int provideUserId)
+        public async Task Add(AddProvideUserModelView addProvideUserModel)
         {
-            throw new NotImplementedException();
+            var guestUserToBeAdded = new ProvideUser()
+            {
+                ApplicationUserId = addProvideUserModel.ApplicationUserId
+            };
+
+            await this.data.AddAsync(guestUserToBeAdded);
+            await this.data.SaveChangesAsync();
         }
 
-        public Task<DeleteProvideUserModelView> DeleteProvideUserForm(int provideUserId)
+        public async Task Delete(int guestUserId)
         {
-            throw new NotImplementedException();
+            await this.data.DeleteAsync<ProvideUser>(guestUserId);
+            await this.data.SaveChangesAsync();
         }
 
-        public Task Edit(int provideUserId, EditProvideUserModelView editProvideUserModel)
+        public async Task<DeleteProvideUserModelView> DeleteProvideUserForm(int guestUserId)
         {
-            throw new NotImplementedException();
+            var guestUserToBeDeleted = await
+                GetProvideUserById(guestUserId);
+
+            var deleteProvideUserModel = new DeleteProvideUserModelView()
+            {
+                ApplicationUserId = guestUserToBeDeleted.ApplicationUserId
+            };
+
+            return deleteProvideUserModel;
         }
 
-        public Task<EditProvideUserModelView> EditCreateForm(int provideUserId)
+        public async Task Edit(int guestUserId, EditProvideUserModelView editProvideUserModel)
         {
-            throw new NotImplementedException();
+            var guestUserToBeEdited = await
+                GetProvideUserById(guestUserId);
+
+            guestUserToBeEdited.ApplicationUserId = editProvideUserModel.ApplicationUserId;
+
+            this.data.Update<ProvideUser>(guestUserToBeEdited);
+            await this.data.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<AllProvideUsersModelView>> GetAllProvideUsers()
+        public async Task<EditProvideUserModelView> EditCreateForm(int guestUserId)
         {
-            throw new NotImplementedException();
+            var guestUserToBeEdited = await
+                GetProvideUserById(guestUserId);
+
+            var editProvideUserModel = new EditProvideUserModelView()
+            {
+                ApplicationUserId = guestUserToBeEdited.ApplicationUserId
+            };
+
+            return editProvideUserModel;
         }
 
-        public Task<ProvideUser> GetProvideUserById(int provideUserId)
+        public async Task<IEnumerable<AllProvideUsersModelView>> GetAllProvideUsers()
         {
-            throw new NotImplementedException();
+            var guestUsers = await data
+               .AllReadonly<ProvideUser>()
+               .ToListAsync();
+
+            return guestUsers
+                .Select(pu=> new AllProvideUsersModelView()
+                {
+                    ApplicationUserId = pu.ApplicationUserId
+                })
+                .ToList();
         }
 
-        public Task<DetailsProvideUserModelView> GetProvideUserDetailsById(int provideUserId)
+        public async Task<ProvideUser> GetProvideUserById(int guestUserId)
         {
-            throw new NotImplementedException();
+            var guestUser = await
+              this.data
+              .AllReadonly<ProvideUser>()
+              .Where(pu=> pu.ProvideUserId == guestUserId)
+              .FirstOrDefaultAsync();
+
+            if (guestUser == null)
+            {
+                throw new ArgumentNullException(null, nameof(guestUser));
+            }
+
+            return guestUser;
         }
 
-        public Task<IEnumerable<ProvideUser>> GetProvideUsersForSelect()
+        public async Task<DetailsProvideUserModelView> GetProvideUserDetailsById(int guestUserId)
         {
-            throw new NotImplementedException();
+            var guestUser = await
+               this.data
+               .AllReadonly<ProvideUser>()
+               .Include(pu=> pu.ApplicationUser)
+               .Where(pu=> pu.ProvideUserId == guestUserId)
+               .Select(pu=> new DetailsProvideUserModelView()
+               {
+                   ApplicationUserId = pu.ApplicationUserId
+               }).FirstOrDefaultAsync();
+
+            if (guestUser == null)
+            {
+                throw new ArgumentNullException(null, nameof(guestUser));
+            }
+
+            return guestUser;
+        }
+
+        public async Task<IEnumerable<ProvideUser>> GetProvideUsersForSelect()
+        {
+            return await
+               this.data
+               .AllReadonly<ProvideUser>()
+               .ToListAsync();
         }
     }
 }
