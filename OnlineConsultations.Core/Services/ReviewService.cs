@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineConsultations.Core.Contracts;
 using OnlineConsultations.Data.Entities;
-using OnlineConsultations.Data.Models.Answer;
-using OnlineConsultations.Data.Models.Review;
 using OnlineConsultations.Data.Models.Review;
 using OnlineConsultations.Data.Repositories;
 using System;
