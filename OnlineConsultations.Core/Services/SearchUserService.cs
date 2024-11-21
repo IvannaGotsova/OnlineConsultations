@@ -1,6 +1,10 @@
-﻿using OnlineConsultations.Core.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineConsultations.Core.Contracts;
 using OnlineConsultations.Data.Entities;
+using OnlineConsultations.Data.Models.Answer;
 using OnlineConsultations.Data.Models.SearchUser;
+using OnlineConsultations.Data.Models.SearchUser;
+using OnlineConsultations.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,49 +15,123 @@ namespace OnlineConsultations.Core.Services
 {
     public class SearchUserService : ISearchUserService
     {
-        public Task Add(AddSearchUserModelView addSearchUserModel)
+        private readonly IRepository data;
+
+        public SearchUserService(IRepository data)
         {
-            throw new NotImplementedException();
+            this.data = data;
         }
 
-        public Task Delete(int searchUserId)
+        public async Task Add(AddSearchUserModelView addSearchUserModel)
         {
-            throw new NotImplementedException();
+            var searchUserToBeAdded = new SearchUser()
+            {
+                ApplicationUserId = addSearchUserModel.ApplicationUserId
+            };
+
+            await this.data.AddAsync(searchUserToBeAdded);
+            await this.data.SaveChangesAsync();
         }
 
-        public Task<DeleteSearchUserModelView> DeleteSearchUserForm(int searchUserId)
+        public async Task Delete(int searchUserId)
         {
-            throw new NotImplementedException();
+            await this.data.DeleteAsync<SearchUser>(searchUserId);
+            await this.data.SaveChangesAsync();
         }
 
-        public Task Edit(int searchUserId, EditSearchUserModelView editSearchUserModel)
+        public async Task<DeleteSearchUserModelView> DeleteSearchUserForm(int searchUserId)
         {
-            throw new NotImplementedException();
+            var searchUserToBeDeleted = await
+                GetSearchUserById(searchUserId);
+
+            var deleteSearchUserModel = new DeleteSearchUserModelView()
+            {
+                ApplicationUserId = searchUserToBeDeleted.ApplicationUserId
+            };
+
+            return deleteSearchUserModel;
         }
 
-        public Task<EditSearchUserModelView> EditCreateForm(int searchUserId)
+        public async Task Edit(int searchUserId, EditSearchUserModelView editSearchUserModel)
         {
-            throw new NotImplementedException();
+            var searchUserToBeEdited = await
+                GetSearchUserById(searchUserId);
+
+            searchUserToBeEdited.ApplicationUserId = editSearchUserModel.ApplicationUserId;
+
+            this.data.Update<SearchUser>(searchUserToBeEdited);
+            await this.data.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<AllSearchUsersModelView>> GetAllSearchUsers()
+        public async Task<EditSearchUserModelView> EditCreateForm(int searchUserId)
         {
-            throw new NotImplementedException();
+            var searchUserToBeEdited = await
+                GetSearchUserById(searchUserId);
+
+            var editSearchUserModel = new EditSearchUserModelView()
+            {
+                ApplicationUserId = searchUserToBeEdited.ApplicationUserId
+            };
+
+            return editSearchUserModel;
         }
 
-        public Task<SearchUser> GetSearchUserById(int searchUserId)
+        public async Task<IEnumerable<AllSearchUsersModelView>> GetAllSearchUsers()
         {
-            throw new NotImplementedException();
+            var searchUsers = await data
+               .AllReadonly<SearchUser>()
+               .ToListAsync();
+
+            return searchUsers
+                .Select(su => new AllSearchUsersModelView()
+                {
+                    ApplicationUserId = su.ApplicationUserId
+                })
+                .ToList();
         }
 
-        public Task<DetailsSearchUserModelView> GetSearchUserDetailsById(int searchUserId)
+        public async Task<SearchUser> GetSearchUserById(int searchUserId)
         {
-            throw new NotImplementedException();
+            var searchUser = await
+              this.data
+              .AllReadonly<SearchUser>()
+              .Where(su => su.SearchUserId == searchUserId)
+              .FirstOrDefaultAsync();
+
+            if (searchUser == null)
+            {
+                throw new ArgumentNullException(null, nameof(searchUser));
+            }
+
+            return searchUser;
         }
 
-        public Task<IEnumerable<SearchUser>> GetSearchUsersForSelect()
+        public async Task<DetailsSearchUserModelView> GetSearchUserDetailsById(int searchUserId)
         {
-            throw new NotImplementedException();
+            var searchUser = await
+               this.data
+               .AllReadonly<SearchUser>()
+               .Include(su => su.ApplicationUser)
+               .Where(su => su.SearchUserId == searchUserId)
+               .Select(su => new DetailsSearchUserModelView()
+               {
+                   ApplicationUserId = su.ApplicationUserId
+               }).FirstOrDefaultAsync();
+
+            if (searchUser == null)
+            {
+                throw new ArgumentNullException(null, nameof(searchUser));
+            }
+
+            return searchUser;
+        }
+
+        public async Task<IEnumerable<SearchUser>> GetSearchUsersForSelect()
+        {
+            return await
+               this.data
+               .AllReadonly<SearchUser>()
+               .ToListAsync();
         }
     }
 }
