@@ -14,7 +14,7 @@ namespace OnlineConsultations.Data.Models.Answer
     {
         [Required]
         [StringLength(AnswerDescriptionMaxLength, MinimumLength = AnswerDescriptionMinLength)]
-        public required string AnswerDescription { get; set; }
+        public string AnswerDescription { get; set; }
 
         [Required]
         public DateTime AnswerDate { get; set; }
