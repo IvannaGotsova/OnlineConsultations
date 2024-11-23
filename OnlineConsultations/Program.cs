@@ -50,8 +50,17 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddScoped<IAnswerService, AnswerService>();
 builder.Services.AddScoped<IApplicationUserService, ApplicationUserService>();
-// !!! to add services later
+builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddScoped<IGuestUserService, GuestUserService>();
+builder.Services.AddScoped<IMessageService, MessageService>();
+builder.Services.AddScoped<IPostService, PostService>();
+builder.Services.AddScoped<IProvideUserService, ProvideUserService>();
+builder.Services.AddScoped<IQuestionService, QuestionService>();
+builder.Services.AddScoped<IRatingService, RatingService>();
+builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddScoped<ISearchUserService, SearchUserService>();
 
 builder.Services.AddMemoryCache();
 
