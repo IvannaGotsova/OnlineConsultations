@@ -1,0 +1,42 @@
+﻿@model AddPostModelView 
+
+@{
+    ViewBag.Title = "Add your new Post";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form method="post">
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="@Model.PostTitle" class="form-label">Post Title</label>
+                <input asp-for="@Model.PostTitle" class="form-control" aria-required="true" />
+                <span asp-validation-for="PostTitle" class="text-danger"></span>
+                <label asp-for="@Model.PostDescription" class="form-label">Post Description</label>
+                <input asp-for="@Model.PostDescription" class="form-control" aria-required="true" />
+                <span asp-validation-for="PostDescription" class="text-danger"></span>
+                <label asp-for="@Model.PostPayPerHour" class="form-label">Post Pay Per Hour</label>
+                <input asp-for="@Model.PostTitle" class="form-control" aria-required="true" />
+                <span asp-validation-for="PostTitle" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.ProvideUserId" class="form-label">ProvideUser Id </label>
+                <input asp-for="@Model.ProvideUserId" class="form-control" aria-required="true" />
+                <span asp-validation-for="ProvideUserId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Add Post" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
