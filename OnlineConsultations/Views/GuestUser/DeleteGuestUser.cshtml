@@ -1,0 +1,24 @@
+﻿@model DeleteGuestUserModelView 
+
+@{
+    ViewBag.Title = "Delete GuestUser";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<form asp-action="Delete">
+    <div class="row">
+        <div class="col-md-8">
+            <input type="hidden" asp-for="@Model.GuestUserId" />
+            <div class="form-group">
+                <label asp-for="GuestUserId" class="control-label">Guest User Id</label>
+                <input asp-for="GuestUserId" class="form-control" disabled="disabled" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationUserId" class="control-label">Application User Id</label>
+                <input asp-for="ApplicationUserId" class="form-control" disabled="disabled" />
+            </div>
+        </div>
+    </div>
+</form>
