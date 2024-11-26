@@ -13,7 +13,7 @@ namespace OnlineConsultations.Data.Models.Review
     {
         [Required]
         [StringLength(ReviewDescriptionMaxLength, MinimumLength = ReviewDescriptionMinLength)]
-        public required string ReviewDescription { get; set; }
+        public string ReviewDescription { get; set; }
 
         [Required]
         public DateTime ReviewDate { get; set; }
