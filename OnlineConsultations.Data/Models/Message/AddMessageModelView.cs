@@ -13,7 +13,7 @@ namespace OnlineConsultations.Data.Models.Message
     {
         [Required]
         [StringLength(MessageDescriptionMaxLength, MinimumLength = MessageDescriptionMinLength)]
-        public required string MessageDescription { get; set; }
+        public string MessageDescription { get; set; }
 
         public int ProvideUserId { get; set; }
 
