@@ -13,11 +13,11 @@ namespace OnlineConsultations.Data.Models.Question
     {
         [Required]
         [StringLength(QuestionTitleMaxLength, MinimumLength = QuestionTitleMinLength)]
-        public required string QuestionTitle { get; set; }
+        public string QuestionTitle { get; set; }
 
         [Required]
         [StringLength(QuestionDescriptionMaxLength, MinimumLength = QuestionDescriptionMinLength)]
-        public required string QuestionDescription { get; set; }
+        public string QuestionDescription { get; set; }
 
         [Required]
         public DateTime QuestionDate { get; set; }
