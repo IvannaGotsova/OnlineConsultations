@@ -33,18 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Comment\" />
-    <Folder Include="Views\GuestUser\" />
-    <Folder Include="Views\Message\" />
-    <Folder Include="Views\SearchUser\" />
-    <Folder Include="Views\Review\" />
-    <Folder Include="Views\Rating\" />
-    <Folder Include="Views\Question\" />
-    <Folder Include="Views\ProvideUser\" />
-    <Folder Include="Views\Post\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Update="Views\Shared\_ValidationScriptsPartial.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -53,6 +41,12 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\" />
+    <Folder Include="Areas\ProvideUser\" />
+    <Folder Include="Areas\SearchUser\" />
   </ItemGroup>
 
 </Project>
