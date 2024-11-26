@@ -13,11 +13,11 @@ namespace OnlineConsultations.Data.Models.Post
     {
         [Required]
         [StringLength(PostTitleMaxLength, MinimumLength = PostTitleMinLength)]
-        public required string PostTitle { get; set; }
+        public string PostTitle { get; set; }
 
         [Required]
         [StringLength(PostDescriptionMaxLength, MinimumLength = PostDescriptionMinLength)]
-        public required string PostDescription { get; set; }
+        public string PostDescription { get; set; }
 
         [Required]
         [Range(typeof(double), "0.00", "10000.00", ConvertValueInInvariantCulture = true)]
