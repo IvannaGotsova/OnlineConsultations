@@ -12,7 +12,7 @@ namespace OnlineConsultations.Data.Models.ProvideUser
     public class AddProvideUserModelView
     {
         [Required]
-        public required string ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
 
         [ForeignKey(nameof(ApplicationUserId))]
         public ApplicationUser? ApplicationUser { get; set; }
