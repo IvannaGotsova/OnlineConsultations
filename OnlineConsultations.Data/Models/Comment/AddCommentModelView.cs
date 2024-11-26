@@ -13,11 +13,11 @@ namespace OnlineConsultations.Data.Models.Comment
     {
         [Required]
         [StringLength(CommentTitleMaxLength, MinimumLength = CommentTitleMinLength)]
-        public required string CommentTitle { get; set; }
+        public string CommentTitle { get; set; }
 
         [Required]
         [StringLength(CommentDescriptionMaxLength, MinimumLength = CommentDescriptionMinLength)]
-        public required string CommentDescription { get; set; }
+        public string CommentDescription { get; set; }
 
         public int? GuestUserId { get; set; } = null;
 
