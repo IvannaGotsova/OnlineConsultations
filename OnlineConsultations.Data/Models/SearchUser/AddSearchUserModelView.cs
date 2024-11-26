@@ -11,7 +11,7 @@ namespace OnlineConsultations.Data.Models.SearchUser
     public class AddSearchUserModelView
     {
         [Required]
-        public required string ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
 
         [ForeignKey(nameof(ApplicationUserId))]
         public ApplicationUser? ApplicationUser { get; set; }
