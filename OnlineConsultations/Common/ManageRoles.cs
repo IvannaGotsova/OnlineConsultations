@@ -11,7 +11,7 @@ namespace OnlineConsultations.Common
             using var scopedServices = applicationBuilder.ApplicationServices.CreateScope();
 
             var services = scopedServices.ServiceProvider;
-
+             
             var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
             var roleManager = services.GetRequiredService<RoleManager<ApplicationRole>>();
 
@@ -38,6 +38,22 @@ namespace OnlineConsultations.Common
                  })
                  .GetAwaiter()
                  .GetResult();
+
+            Task
+                .Run(async () =>
+                {
+                    if (await roleManager.RoleExistsAsync("ProvideUser") == false)
+                    {
+                        var roleToBeCreated = new ApplicationRole()
+                        {
+                            Name = "ProvideUser"
+                        };
+
+                        var resultCreateRole = await roleManager.CreateAsync(roleToBeCreated);
+                    }
+                })
+                .GetAwaiter()
+                .GetResult();
         }
         
         private static void AssignUsers(UserManager<ApplicationUser> userManager)
