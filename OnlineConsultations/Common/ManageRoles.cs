@@ -1,11 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using OnlineConsultations.Core.Contracts;
 using OnlineConsultations.Data.Entities;
+using System.Text.RegularExpressions;
 
 namespace OnlineConsultations.Common
 {
     public static class ManageRoles
     {
+        private static readonly IApplicationUserService applicationUserService;
+
         public static IApplicationBuilder SeedUsersRoles(this IApplicationBuilder applicationBuilder)
         {
             using var scopedServices = applicationBuilder.ApplicationServices.CreateScope();
@@ -54,6 +59,22 @@ namespace OnlineConsultations.Common
                 })
                 .GetAwaiter()
                 .GetResult();
+
+            Task
+               .Run(async () =>
+               {
+                   if (await roleManager.RoleExistsAsync("SearchUser") == false)
+                   {
+                       var roleToBeCreated = new ApplicationRole()
+                       {
+                           Name = "SearchUser"
+                       };
+
+                       var resultCreateRole = await roleManager.CreateAsync(roleToBeCreated);
+                   }
+               })
+               .GetAwaiter()
+               .GetResult();
         }
         
         private static void AssignUsers(UserManager<ApplicationUser> userManager)
