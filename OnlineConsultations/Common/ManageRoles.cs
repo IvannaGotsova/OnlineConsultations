@@ -76,7 +76,7 @@ namespace OnlineConsultations.Common
                .GetAwaiter()
                .GetResult();
         }
-        
+
         private static void AssignUsers(UserManager<ApplicationUser> userManager)
         {
             Task
@@ -105,7 +105,10 @@ namespace OnlineConsultations.Common
                  .GetAwaiter()
                  .GetResult();
 
+
+            
         }
 
     }
 }
+
