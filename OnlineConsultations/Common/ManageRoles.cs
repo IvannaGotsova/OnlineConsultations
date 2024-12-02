@@ -105,8 +105,36 @@ namespace OnlineConsultations.Common
                  .GetAwaiter()
                  .GetResult();
 
+            Task
+                 .Run(async () =>
+                 {
+                     var userToBeAssigned = new ApplicationUser();
 
-            
+                     if (applicationUserService.GetApplicationUsers() == null)
+                     {
+                         var applicationUsers = applicationUserService.GetApplicationUsers();
+
+                         foreach (var applicationUser in applicationUsers.Result)
+                         {
+                             if (Regex.IsMatch(applicationUser.Email, "[a-zA-Z0-9]+@provide\\.com"))
+                             {
+                                 userToBeAssigned = await userManager.FindByEmailAsync(applicationUser.Email);
+                                 await userManager.AddToRoleAsync(userToBeAssigned, "ProvideUser");
+                             }
+                             else if (Regex.IsMatch(applicationUser.Email, "[a-zA-Z0-9]+@search\\.com"))
+                             {
+                                 userToBeAssigned = await userManager.FindByEmailAsync(applicationUser.Email);
+                                 await userManager.AddToRoleAsync(userToBeAssigned, "SearchUser");
+                             }
+
+                         }
+                     }
+
+                 })
+                 .GetAwaiter()
+                 .GetResult();
+
+
         }
 
     }
