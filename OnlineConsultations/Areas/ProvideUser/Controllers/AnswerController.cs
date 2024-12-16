@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace OnlineConsultations.Areas.Admin.Controllers
+namespace OnlineConsultations.Areas.ProvideUser.Controllers
 {
     public class AnswerController : Controller
     {
