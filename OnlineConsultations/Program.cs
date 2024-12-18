@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using OnlineConsultations.Common;
 using OnlineConsultations.Core.Contracts;
 using OnlineConsultations.Core.Services;
 using OnlineConsultations.Data;
@@ -66,9 +67,8 @@ builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 
-// app.SeedUsersRoles();
+app.SeedUsersRoles();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -84,7 +84,6 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseHsts();
 
 app.UseRouting();
 
@@ -96,8 +95,18 @@ app.UseEndpoints(endpoints =>
 
 
     app.MapControllerRoute(
-    name: "areas",
-    pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}"
+    name: "Admin",
+    pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}"
+    );
+
+    app.MapControllerRoute(
+    name: "ProvideUser",
+    pattern: "{area=ProvideUser}/{controller=Home}/{action=Index}/{id?}"
+    );
+
+    app.MapControllerRoute(
+    name: "SearchUser",
+    pattern: "{area=SearchUser}/{controller=Home}/{action=Index}/{id?}"
     );
 
     app.MapControllerRoute(
