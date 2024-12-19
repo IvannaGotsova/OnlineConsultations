@@ -19,5 +19,7 @@ namespace OnlineConsultations.Core.Contracts
         Task Delete(string userId);
        
         Task<IEnumerable<ApplicationUser>> GetApplicationUsersForSelect();
+
+        public int GetApplicationUsersCount();
     }
 }
