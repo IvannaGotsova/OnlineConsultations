@@ -76,6 +76,14 @@ namespace OnlineConsultations.Core.Services
                 .ToList();
         }
 
+        public int GetApplicationUsersCount()
+        {
+            return 
+               this.data
+               .AllReadonly<ApplicationUser>()
+               .Count();
+        }
+
         public async Task<IEnumerable<ApplicationUser>> GetApplicationUsersForSelect()
         {
             return await
