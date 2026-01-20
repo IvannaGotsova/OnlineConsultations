@@ -9,8 +9,6 @@ namespace OnlineConsultations.Common
 {
     public static class ManageRoles
     {
-        private static readonly IApplicationUserService applicationUserService;
-
         public static IApplicationBuilder SeedUsersRoles(this IApplicationBuilder applicationBuilder)
         {
             using var scopedServices = applicationBuilder.ApplicationServices.CreateScope();
@@ -19,9 +17,10 @@ namespace OnlineConsultations.Common
              
             var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
             var roleManager = services.GetRequiredService<RoleManager<ApplicationRole>>();
+            var applicationUserService = services.GetRequiredService<IApplicationUserService>();
 
             CreateRoles(roleManager);
-            AssignUsers(userManager);
+            AssignUsers(userManager, applicationUserService);
 
             return applicationBuilder;
         }
@@ -77,7 +76,7 @@ namespace OnlineConsultations.Common
                .GetResult();
         }
 
-        private static void AssignUsers(UserManager<ApplicationUser> userManager)
+        private static void AssignUsers(UserManager<ApplicationUser> userManager, IApplicationUserService applicationUserService)
         {
             Task
                  .Run(async () =>
