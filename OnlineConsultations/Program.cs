@@ -92,21 +92,9 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
-
-
     app.MapControllerRoute(
-    name: "Admin",
-    pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}"
-    );
-
-    app.MapControllerRoute(
-    name: "ProvideUser",
-    pattern: "{area=ProvideUser}/{controller=Home}/{action=Index}/{id?}"
-    );
-
-    app.MapControllerRoute(
-    name: "SearchUser",
-    pattern: "{area=SearchUser}/{controller=Home}/{action=Index}/{id?}"
+    name: "areas",
+    pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}"
     );
 
     app.MapControllerRoute(
