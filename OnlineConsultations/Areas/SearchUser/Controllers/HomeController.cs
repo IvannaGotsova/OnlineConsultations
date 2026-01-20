@@ -2,6 +2,7 @@
 
 namespace OnlineConsultations.Areas.SearchUser.Controllers
 {
+    [Area("SearchUser")]
     public class HomeController : Controller
     {
         public IActionResult Index()
