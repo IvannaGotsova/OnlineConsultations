@@ -2,6 +2,7 @@
 
 namespace OnlineConsultations.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class RatingController : Controller
     {
         public IActionResult Index()

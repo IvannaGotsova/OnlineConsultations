@@ -2,6 +2,7 @@
 
 namespace OnlineConsultations.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class GuestUserController : Controller
     {
         public IActionResult Index()
