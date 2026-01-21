@@ -2,6 +2,7 @@
 
 namespace OnlineConsultations.Areas.ProvideUser.Controllers
 {
+    [Area("ProvideUser")]
     public class MessageController : Controller
     {
         public IActionResult Index()
