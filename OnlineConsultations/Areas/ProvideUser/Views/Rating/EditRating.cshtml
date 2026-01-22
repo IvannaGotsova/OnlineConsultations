@@ -1,0 +1,42 @@
+﻿@model EditRatingModelView 
+
+@{
+    ViewBag.Title = "Edit Rating";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form method="post">
+            <input type="hidden" asp-for="@Model.RatingId" />
+            <div class="mb-3">
+                <div class="form-group">
+                    <label asp-for="@Model.RatingValue" class="form-label">Rating Value</label>
+                    <input asp-for="@Model.RatingValue" class="form-control" aria-required="true" />
+                    <span asp-validation-for="RatingValue" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label asp-for="@Model.ProvideUserId" class="form-label">ProvideUser Id </label>
+                    <input asp-for="@Model.ProvideUserId" class="form-control" aria-required="true" />
+                    <span asp-validation-for="ProvideUserId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.SearchUserId" class="form-label">SearchUser Id </label>
+                    <input asp-for="@Model.SearchUserId" class="form-control" aria-required="true" />
+                    <span asp-validation-for="SearchUserId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="text-center">
+                <input class="btn btn-primary mt-3" type="submit" value="Save" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

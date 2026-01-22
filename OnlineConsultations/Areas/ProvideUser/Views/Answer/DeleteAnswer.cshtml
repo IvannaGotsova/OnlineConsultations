@@ -1,0 +1,35 @@
+﻿@model DeleteAnswerModelView 
+
+@{
+    ViewBag.Title = "Delete Answer";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<form asp-action="Delete">
+    <div class="row">
+        <div class="col-md-8">
+            <input type="hidden" asp-for="@Model.AnswerId" />
+            <div class="form-group">
+                <label asp-for="AnswerDescription" class="control-label">Answer Description</label>
+                <input asp-for="AnswerDescription" class="form-control" disabled="disabled" />
+            </div>
+            <div class="form-group">
+                <label asp-for="AnswerDate" class="control-label">Answer Date</label>
+                <input asp-for="AnswerDate" class="form-control" disabled="disabled" />
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionId" class="control-label">Question Id</label>
+                <input asp-for="QuestionId" class="form-control" disabled="disabled" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ProvideUserId" class="control-label">Provide User Id</label>
+                <input asp-for="ProvideUserId" class="form-control" disabled="disabled" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AllQuestionsModelView> 
+
+
+@{
+    ViewBag.Title = "All Questions";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<a class="btn btn-warning" asp-controller="Question" asp-action="AllQuestions"
+   sp-route-information="" class="btn btn-success">All Questions</a>
+<hr />
+
+<div class="text-center row">
+    @if (Model.Count()  > 0)
+    {
+        @foreach (var question in Model)
+        {
+            <div class="card col-4" style="width: 20rem;">
+                <div class="card-body">
+
+                    <h5 class="card-title mt-1">Question ID: @question.QuestionId</h5>
+                    <h5 class="card-title mt-1">Question Title: @question.QuestionTitle</h5>
+                    <h5 class="card-title mt-1">Question Description: @question.QuestionDescription</h5>
+                    <h5 class="mb-0">Question Date: @question.QuestionDate</h5>
+                    <h5 class="mb-0">Guest User Id: @question.GuestUserId</h5>
+                    <h5 class="mb-0">Search User ID: @question.SearchUserId</h5>
+                </div>               
+            </div>
+        }
+    }
+    else 
+    {
+        <p class="mb-0">There are no questions yet!</p>
+    }
+ 
+</div>

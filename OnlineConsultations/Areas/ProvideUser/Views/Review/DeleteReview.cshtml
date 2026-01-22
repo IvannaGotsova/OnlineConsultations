@@ -1,0 +1,35 @@
+﻿@model DeleteReviewModelView 
+
+@{
+    ViewBag.Title = "Delete Review";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<form asp-action="Delete">
+    <div class="row">
+        <div class="col-md-8">
+            <input type="hidden" asp-for="@Model.ReviewId" />
+            <div class="form-group">
+                <label asp-for="ReviewDescription" class="control-label">Review Description</label>
+                <input asp-for="ReviewDescription" class="form-control" disabled="disabled" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ReviewDate" class="control-label">Review Date</label>
+                <input asp-for="ReviewDate" class="form-control" disabled="disabled" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ProvideUserId" class="control-label">Provide User Id</label>
+                <input asp-for="ProvideUserId" class="form-control" disabled="disabled" />
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchUserId" class="control-label">Search User Id</label>
+                <input asp-for="SearchUserId" class="form-control" disabled="disabled" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>

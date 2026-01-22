@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AllCommentsModelView> 
+
+
+@{
+    ViewBag.Title = "All Comments";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<a class="btn btn-warning" asp-controller="Comment" asp-action="AllComments"
+   sp-route-information="" class="btn btn-success">All Comments</a>
+<hr />
+
+<div class="text-center row">
+    @if (Model.Count()  > 0)
+    {
+        @foreach (var comment in Model)
+        {
+            <div class="card col-4" style="width: 20rem;">
+                <div class="card-body">
+
+                    <h5 class="card-title mt-1">Comment ID: @comment.CommentId</h5>
+                    <h5 class="card-title mt-1">Comment Title: @comment.CommentTitle</h5>
+                    <h5 class="card-title mt-1">Comment Description: @comment.CommentDescription</h5>
+                    <h5 class="mb-0">Search User ID: @comment.SearchUserId</h5>
+                    <h5 class="mb-0">Guest User ID: @comment.GuestUserId</h5>
+                    <h5 class="mb-0">Answer ID: @comment.AnswerId</h5>
+                </div>               
+            </div>
+        }
+    }
+    else 
+    {
+        <p class="mb-0">There are no comments yet!</p>
+    }
+ 
+</div>

@@ -1,0 +1,45 @@
+﻿@model AddCommentModelView 
+
+@{
+    ViewBag.Title = "Add your new Comment";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form method="post">
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="@Model.CommentTitle" class="form-label">Comment Title</label>
+                <input asp-for="@Model.CommentTitle" class="form-control" aria-required="true" />
+                <span asp-validation-for="CommentTitle" class="text-danger"></span>
+                <label asp-for="@Model.CommentDescription" class="form-label">Comment Description</label>
+                <input asp-for="@Model.CommentDescription" class="form-control" aria-required="true" />
+                <span asp-validation-for="CommentDescription" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.SearchUserId" class="form-label">Search User Id </label>
+                <input asp-for="@Model.SearchUserId" class="form-control" aria-required="true" />
+                <span asp-validation-for="SearchUserId" class="text-danger"></span>
+                <label asp-for="@Model.GuestUserId" class="form-label">Guest User Id </label>
+                <input asp-for="@Model.GuestUserId" class="form-control" aria-required="true" />
+                <span asp-validation-for="GuestUserId" class="text-danger"></span>
+                <label asp-for="@Model.AnswerId" class="form-label">Answer Id </label>
+                <input asp-for="@Model.AnswerId" class="form-control" aria-required="true" />
+                <span asp-validation-for="AnswerId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Add Comment" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
