@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AllMessagesModelView> 
+
+
+@{
+    ViewBag.Title = "All Messages";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<a class="btn btn-warning" asp-controller="Message" asp-action="AllMessages"
+   sp-route-information="" class="btn btn-success">All Messages</a>
+<hr />
+
+<div class="text-center row">
+    @if (Model.Count()  > 0)
+    {
+        @foreach (var message in Model)
+        {
+            <div class="card col-4" style="width: 20rem;">
+                <div class="card-body">
+
+                    <h5 class="card-title mt-1">Message ID: @message.MessageId</h5>
+                    <h5 class="card-title mt-1">Message Description: @message.MessageDescription</h5>
+                    <h5 class="mb-0">Provide User ID: @message.ProvideUserId</h5>
+                    <h5 class="mb-0">Search User ID: @message.SearchUserId</h5>
+                </div>               
+            </div>
+        }
+    }
+    else 
+    {
+        <p class="mb-0">There are no messages yet!</p>
+    }
+ 
+</div>

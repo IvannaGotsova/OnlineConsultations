@@ -1,0 +1,23 @@
+﻿@model DetailsReviewModelView 
+
+@{
+    ViewBag.Title = $"Review - {Model.ReviewId}";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+   <div class="card col-4" style="width: 20rem; ">
+       <div class="card-body">
+            <input type="hidden" asp-for="@Model.ReviewId" />
+          <h5 class="card-title mt-1">Review ID: @Model.ReviewId</h5>
+          <p class="mb-0">Review Description: @Model.ReviewDescription</p>
+          <p class="mb-0">Review Date: @Model.ReviewDate</p>
+            <p class="mb-0">Provide User ID: @Model.ProvideUserId</p>
+          <p class="mb-0">Search User ID: @Model.SearchUserId</p>
+       </div>
+    </div>
+</div>
+

@@ -1,0 +1,23 @@
+﻿@model DetailsPostModelView 
+
+@{
+    ViewBag.Title = $"Post - {Model.PostId}";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+   <div class="card col-4" style="width: 20rem; ">
+       <div class="card-body">
+            <input type="hidden" asp-for="@Model.PostId" />
+          <h5 class="card-title mt-1">Post ID: @Model.PostId</h5>
+          <p class="mb-0">Post Title: @Model.PostTitle</p>
+          <p class="mb-0">Post Description: @Model.PostDescription</p>
+          <p class="mb-0">Post Pay Per Hour: @Model.PostPayPerHour</p>
+          <p class="mb-0">Provide User ID: @Model.ProvideUserId</p>
+       </div>
+    </div>
+</div>
+
