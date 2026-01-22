@@ -1,0 +1,20 @@
+﻿@model DetailsSearchUserModelView
+
+@{
+    ViewBag.Title = $"SearchUser - {Model.SearchUserId}";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+    <div class="card col-4" style="width: 20rem; ">
+        <div class="card-body">
+            <input type="hidden" asp-for="@Model.SearchUserId" />
+            <h5 class="card-title mt-1">SearchUser ID: @Model.SearchUserId</h5>
+            <p class="mb-0">Application User Id: @Model.ApplicationUserId</p>
+        </div>
+    </div>
+</div>
+

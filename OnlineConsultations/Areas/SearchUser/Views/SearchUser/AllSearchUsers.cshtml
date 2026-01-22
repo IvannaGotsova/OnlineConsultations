@@ -1,0 +1,34 @@
+﻿@model IEnumerable<AllSearchUsersModelView>
+
+
+@{
+    ViewBag.Title = "All Search Users";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<a class="btn btn-warning" asp-controller="SearchUser" asp-action="AllSearchUsers"
+   sp-route-information="" class="btn btn-success">All SearchUsers</a>
+<hr />
+
+<div class="text-center row">
+    @if (Model.Count() > 0)
+    {
+        @foreach (var searchUser in Model)
+        {
+            <div class="card col-4" style="width: 20rem;">
+                <div class="card-body">
+                    <h5 class="card-title mt-1">SearchUser ID: @searchUser.SearchUserId</h5>
+                    <h5 class="card-title mt-1">SearchUser ID: @searchUser.ApplicationUserId</h5>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p class="mb-0">There are no search users yet!</p>
+    }
+
+</div>

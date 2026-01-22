@@ -1,0 +1,38 @@
+﻿@model IEnumerable<AllPostsModelView> 
+
+
+@{
+    ViewBag.Title = "All Posts";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<a class="btn btn-warning" asp-controller="Post" asp-action="AllPosts"
+   sp-route-information="" class="btn btn-success">All Posts</a>
+<hr />
+
+<div class="text-center row">
+    @if (Model.Count()  > 0)
+    {
+        @foreach (var post in Model)
+        {
+            <div class="card col-4" style="width: 20rem;">
+                <div class="card-body">
+
+                    <h5 class="card-title mt-1">Post ID: @post.PostId</h5>
+                    <h5 class="card-title mt-1">Post Title: @post.PostTitle</h5>
+                    <h5 class="card-title mt-1">Post Description: @post.PostDescription</h5>
+                    <h5 class="mb-0">Post Pay Per Hour: @post.PostPayPerHour</h5>
+                    <h5 class="mb-0">Provide User ID: @post.ProvideUserId</h5>
+                </div>               
+            </div>
+        }
+    }
+    else 
+    {
+        <p class="mb-0">There are no posts yet!</p>
+    }
+ 
+</div>

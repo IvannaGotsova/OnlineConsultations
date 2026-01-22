@@ -1,0 +1,24 @@
+﻿@model DetailsQuestionModelView 
+
+@{
+    ViewBag.Title = $"Question - {Model.QuestionId}";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+   <div class="card col-4" style="width: 20rem; ">
+       <div class="card-body">
+            <input type="hidden" asp-for="@Model.QuestionId" />
+          <h5 class="card-title mt-1">Question ID: @Model.QuestionId</h5>
+          <h5 class="card-title mt-1">Question ID: @Model.QuestionTitle</h5>
+          <p class="mb-0">Question Description: @Model.QuestionDescription</p>
+          <p class="mb-0">Question Date: @Model.QuestionDate</p>
+          <p class="mb-0">Guest User Id: @Model.GuestUserId</p>
+          <p class="mb-0">Search User Id: @Model.SearchUserId</p>
+       </div>
+    </div>
+</div>
+

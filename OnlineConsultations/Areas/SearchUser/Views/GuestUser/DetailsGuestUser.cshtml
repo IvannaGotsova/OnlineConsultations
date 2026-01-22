@@ -1,0 +1,20 @@
+﻿@model DetailsGuestUserModelView 
+
+@{
+    ViewBag.Title = $"GuestUser - {Model.GuestUserId}";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+   <div class="card col-4" style="width: 20rem; ">
+       <div class="card-body">
+            <input type="hidden" asp-for="@Model.GuestUserId" />
+          <h5 class="card-title mt-1">GuestUser ID: @Model.GuestUserId</h5>
+            <p class="mb-0">Application User Id: @Model.ApplicationUserId</p>
+       </div>
+    </div>
+</div>
+

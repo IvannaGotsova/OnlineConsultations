@@ -1,0 +1,34 @@
+﻿@model IEnumerable<AllProvideUsersModelView>
+
+
+@{
+    ViewBag.Title = "All Provide Users";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<a class="btn btn-warning" asp-controller="ProvideUser" asp-action="AllProvideUsers"
+   sp-route-information="" class="btn btn-success">All ProvideUsers</a>
+<hr />
+
+<div class="text-center row">
+    @if (Model.Count() > 0)
+    {
+        @foreach (var provideUser in Model)
+        {
+            <div class="card col-4" style="width: 20rem;">
+                <div class="card-body">
+                    <h5 class="card-title mt-1">ProvideUser ID: @provideUser.ProvideUserId</h5>
+                    <h5 class="card-title mt-1">ProvideUser ID: @provideUser.ApplicationUserId</h5>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p class="mb-0">There are no provide users yet!</p>
+    }
+
+</div>
