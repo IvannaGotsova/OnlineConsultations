@@ -1,5 +1,6 @@
 ﻿using OnlineConsultations.Data.Entities;
 using OnlineConsultations.Data.Models.ApplicationUserModels;
+using SmoothieShop.Data.Models.ApplicationUserModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +11,12 @@ namespace OnlineConsultations.Core.Contracts
 {
     public interface IApplicationUserService
     {
-        Task<IEnumerable<ApplicationUserModelView>> GetApplicationUsers();
-
+        Task<IEnumerable<AllApplicationUsersModel>> GetApplicationUsers();
         Task<ApplicationUser> GetApplicaionUserById(string userId);
-      
-        Task<ApplicationUserModelView> DeleteCreateForm(string userId);
-     
+        Task<ApplicationUserModel> DeleteCreateForm(string userId);
         Task Delete(string userId);
-       
         Task<IEnumerable<ApplicationUser>> GetApplicationUsersForSelect();
-
-        public int GetApplicationUsersCount();
+        Task<DetailsApplicationUserModel> GetApplicationUserDetailsById(string applicationUserId);
+        int Count();
     }
 }
