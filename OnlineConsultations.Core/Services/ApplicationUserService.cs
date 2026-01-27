@@ -3,6 +3,7 @@ using OnlineConsultations.Core.Contracts;
 using OnlineConsultations.Data.Entities;
 using OnlineConsultations.Data.Models.ApplicationUserModels;
 using OnlineConsultations.Data.Repositories;
+using SmoothieShop.Data.Models.ApplicationUserModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,20 +19,48 @@ namespace OnlineConsultations.Core.Services
         {
             this.data = data;
         }
-        public async Task Delete(string userId)
+
+        public async Task<IEnumerable<AllApplicationUsersModel>> GetApplicationUsers()
         {
-            await this.data
-               .DeleteAsync<ApplicationUser>(userId);
-            await this.data
-                .SaveChangesAsync();
+            var allUsers = await
+                this.data
+                .AllReadonly<ApplicationUser>()
+                .ToListAsync();
+
+            return allUsers
+                .Select(u => new AllApplicationUsersModel()
+                {
+                    Id = u.Id,
+                    UserName = u.UserName,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName
+
+                })
+                .ToList();
         }
 
-        public async Task<ApplicationUserModelView> DeleteCreateForm(string userId)
+        public async Task<ApplicationUser> GetApplicaionUserById(string userId)
+        {
+            //check if user is null
+            if (await this.data
+                .GetByIdAsync<ApplicationUser>(userId) == null)
+            {
+                throw new ArgumentNullException(null, nameof(userId));
+            }
+
+            return await
+               this.data
+               .AllReadonly<ApplicationUser>()
+               .Where(au => au.Id == userId)
+               .FirstAsync();
+        }
+
+        public async Task<ApplicationUserModel> DeleteCreateForm(string userId)
         {
             var userToBeDeleted = await
                 GetApplicaionUserById(userId);
 
-            var deleteApplicationUserModel = new ApplicationUserModelView()
+            var deleteApplicationUserModel = new ApplicationUserModel()
             {
                 Id = userToBeDeleted!.Id,
                 UserName = userToBeDeleted!.UserName,
@@ -42,46 +71,12 @@ namespace OnlineConsultations.Core.Services
             return deleteApplicationUserModel;
         }
 
-        public async Task<ApplicationUser> GetApplicaionUserById(string userId)
+        public async Task Delete(string userId)
         {
-            if (await this.data
-               .GetByIdAsync<ApplicationUser>(userId) == null)
-            {
-                throw new ArgumentNullException("Value cannot be null.", nameof(userId));
-            }
-
-            return await
-               this.data
-               .AllReadonly<ApplicationUser>()
-               .Where(au => au.Id == userId)
-               .FirstAsync();
-        }
-
-        public async Task<IEnumerable<ApplicationUserModelView>> GetApplicationUsers()
-        {
-            var allApplicationUsers = await
-                 this.data
-                 .AllReadonly<ApplicationUser>()
-                 .ToListAsync();
-
-            return allApplicationUsers
-                .Select(u => new ApplicationUserModelView()
-                {
-                    Id = u.Id,
-                    UserName = u.UserName,
-                    FirstName = u.FirstName,
-                    LastName = u.LastName,
-                    Email = u.Email
-                })
-                .ToList();
-        }
-
-        public int GetApplicationUsersCount()
-        {
-            return 
-               this.data
-               .AllReadonly<ApplicationUser>()
-               .Count();
+            await this.data
+                .DeleteAsync<ApplicationUser>(userId);
+            await this.data
+                .SaveChangesAsync();
         }
 
         public async Task<IEnumerable<ApplicationUser>> GetApplicationUsersForSelect()
@@ -92,6 +87,35 @@ namespace OnlineConsultations.Core.Services
                 .ToListAsync();
         }
 
+        public async Task<DetailsApplicationUserModel> GetApplicationUserDetailsById(string applicationUserId)
+        {
+            var applicationUser = await
+               this.data
+               .AllReadonly<ApplicationUser>()
+               .Where(au => au.Id == applicationUserId)
+               .Select(au => new DetailsApplicationUserModel()
+               {
+                   Id = au.Id,
+                   UserName = au.UserName,
+                   FirstName = au.FirstName,
+                   LastName = au.LastName
+               }).FirstOrDefaultAsync();
+
+            if (applicationUser == null)
+            {
+                throw new ArgumentNullException(null, nameof(applicationUser));
+            }
+
+            return applicationUser;
+        }
+
+        public int Count()
+        {
+            return
+                this.data
+                .AllReadonly<ApplicationUser>()
+                .Count();
+        }
 
     }
 }
