@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using OnlineConsultations.Common;
 using OnlineConsultations.Core.Contracts;
 using OnlineConsultations.Data.Entities;
 using OnlineConsultations.Data.Models.ApplicationUserModels;
+using SmoothieShop.Data.Models.ApplicationUserModels;
 
 namespace OnlineConsultations.Controllers
 {
@@ -160,6 +162,29 @@ namespace OnlineConsultations.Controllers
 
                 return RedirectToAction("Error", "Home", new { area = "" });
             }
+        }
+
+        public async Task<IActionResult> ApplicationUserMyProfile()
+        {
+            string currentUserId = User.GetCurrentUserId();
+
+            var currentUser = await applicationUserService
+                .GetApplicaionUserById(currentUserId);
+
+            if (currentUser == null)
+            {
+                return BadRequest("No such ApplicationUser");
+            }
+
+            var applicationUserMyProfile = new ApplicationUserMyProfile
+            {
+                Id = currentUser.Id,
+                UserName = currentUser.UserName,
+                FirstName = currentUser.FirstName,
+                LastName = currentUser.LastName
+            };
+
+            return View(applicationUserMyProfile);
         }
     }
 }
