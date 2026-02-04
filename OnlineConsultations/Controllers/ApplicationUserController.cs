@@ -201,5 +201,19 @@ namespace OnlineConsultations.Controllers
             return View(changePasswordApplicationUserModel);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> ChangePasswordApplicationUser(ChangePasswordApplicationUserModel changePasswordApplicationUserModel)
+        {
+            var user = await userManager.FindByIdAsync(changePasswordApplicationUserModel.Id);
+            if (user == null) return NotFound();
+
+            var result = await userManager.ChangePasswordAsync(user, changePasswordApplicationUserModel.OldPassword, changePasswordApplicationUserModel.NewPassword);
+            if (result.Succeeded)
+            {
+                return Ok("Password changed successfully.");
+            }
+
+            return BadRequest(result.Errors);
+        }
     }
 }
