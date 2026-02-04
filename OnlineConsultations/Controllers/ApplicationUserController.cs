@@ -186,5 +186,20 @@ namespace OnlineConsultations.Controllers
 
             return View(applicationUserMyProfile);
         }
+
+        public async Task<IActionResult> ChangePasswordApplicationUser(string id)
+        {
+            var user = await userManager.FindByIdAsync(id);
+            if (user == null) return NotFound("");
+
+            var changePasswordApplicationUserModel = new ChangePasswordApplicationUserModel
+            {
+                Id = user.Id
+
+            };
+
+            return View(changePasswordApplicationUserModel);
+        }
+
     }
 }
