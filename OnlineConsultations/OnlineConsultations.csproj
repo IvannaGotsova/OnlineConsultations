@@ -43,9 +43,4 @@
     </Content>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\ProvideUser\Views\" />
-    <Folder Include="Areas\SearchUser\Views\" />
-  </ItemGroup>
-
 </Project>
