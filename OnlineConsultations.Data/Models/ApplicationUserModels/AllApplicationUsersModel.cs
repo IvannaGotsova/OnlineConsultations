@@ -15,5 +15,7 @@ namespace SmoothieShop.Data.Models.ApplicationUserModels
         [Required]
         [StringLength(UserMaxLengthLastName, MinimumLength = UserMinLengthLastName)]
         public string? LastName { get; set; }
+        [EmailAddress]
+        public string Email { get; set; } = null!;
     }
 }
