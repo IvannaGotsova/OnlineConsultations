@@ -90,19 +90,19 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
-{
-    app.MapControllerRoute(
+
+app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}"
-    );
+);
 
-    app.MapControllerRoute(
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
-    );
+);
 
-});
+app.Run();
+
 
 app.MapRazorPages();
 
